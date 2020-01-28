@@ -30,6 +30,10 @@
 
 [centos 7.6 分区方案](http://www.cppblog.com/alantop/archive/2019/09/10/216809.html)
 
+[centos 7.6 修改主机名](https://www.cnblogs.com/alantop/p/12237936.html)
+
+
+
 
 
 
