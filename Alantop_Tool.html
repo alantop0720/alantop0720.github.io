@@ -14,6 +14,7 @@
 
 <body>
 <p>
+1. 直接运行命令行
 "D:\alantop_dir\Alantop_Tool\Release\Tools\SublimeText\sublime_text.exe" "%1"
 </p>
 
@@ -22,6 +23,33 @@
 	"cmd": ["$file"],
 	"encoding": "cp936",
 }
+
+<p>
+
+2.侧边栏浏览快捷键打开浏览器
+</p>
+<p>
+ctrl+shift+P 选 Package Control: Install Package 找 SideBarEnhancements 安装。
+
+Preferences->Keys->Bindings 输入如下：
+</p>
+<p>
+
+[    
+
+//chorme
+     {
+        "keys": ["f2"],
+        "command": "side_bar_files_open_with",
+        "args": {
+            "paths": [],
+            "application": "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+            "extensions": ".*"
+        }
+    }
+]
+</p>
+
 
 
 </body>
