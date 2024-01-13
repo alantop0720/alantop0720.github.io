@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="jquery-3.6.4.min.js" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript">
+    $(function(){
+        console.log("#p1");
+        console.log("start");
+    })
+    </script>
+</head>
+<body>
+    <div id="mydiv">1</div>
+    <p id="p1">hello</p>
+
+    
+</body>
+
+
+
+
+
+<script type="text/javascript">
+
+    var divDom = document.getElementById("mydiv");
+    console.log(divDom);
+
+    var divsDom = document.getElementsByTagName("div")
+    console.log(divsDom);
+
+    var divJquery = $("#mydiv");
+    console.log(divJquery);
+
+    //Jquery对象和dom对象的互转
+
+    var divDomToJquery = $(divDom); 
+    console.log(divDomToJquery);
+
+    var divJqueryToDom = divJquery[0];
+    console.log(divJqueryToDom);
+
+
+</script>
+</html>
+

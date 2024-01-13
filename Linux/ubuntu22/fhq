@@ -1,0 +1,16 @@
+# 拒绝转发来自 192.168.1.10 主机的数据，允许转发192.168.0/24网段的数据
+
+# 拒绝所有流量
+
+# iptables -P INPUT DROP
+
+# iptables -A FORWARD -s 192.168.1.10 -j REJECT
+# iptables -A FORWARD -s 192.168.0.0/24 -j ACCEPT
+# 注意要把拒绝放前面，不然不起作用
+
+iptables -F
+iptables -X
+iptables -Z
+iptables -P INPUT DROP
+iptables -A FORWARD -s 10.2.3.0/24 -j ACCEPT
+iptables -A INPUT -s 10.2.3.0/24 -j ACCEPT

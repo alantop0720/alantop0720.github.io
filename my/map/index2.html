@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>HELLO，AMAP!</title>
+    <style>
+        html, body, #container {
+          width: 100%;
+          height: 100%;
+        }
+
+        .custom-content-marker {
+  position: relative;
+  width: 25px;
+  height: 34px;
+}
+
+.custom-content-marker img {
+  width: 100%;
+  height: 100%;
+}
+
+.custom-content-marker .close-btn {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  width: 15px;
+  height: 15px;
+  font-size: 12px;
+  background: #ccc;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  line-height: 15px;
+  box-shadow: -1px 1px 1px rgba(10, 10, 10, .2);
+}
+
+.custom-content-marker .close-btn:hover{
+  background: #666;
+}
+    </style>
+
+    <script type="text/javascript">
+  window._AMapSecurityConfig = {
+    securityJsCode:"a64434dd3bc7250a7f6d60aaa53f4f69",
+  }
+</script>
+<script src="https://webapi.amap.com/loader.js"></script>
+<script type="text/javascript" >
+  AMapLoader.load({
+    key: "342807feae18384a533cf86b62591451",       // 申请好的Web端开发者Key，首次调用 load 时必填
+    version: "2.0",                 // 指定要加载的 JSAPI 的版本，缺省时默认为 1.4.15
+  }).then((AMap)=>{
+
+
+    map = new AMap.Map('container', {
+  viewMode: '2D',  // 默认使用 2D 模式
+  zoom:14,  //初始化地图层级
+  center: [121.52,31.32]  //初始化地图中心点
+});
+
+const position = new AMap.LngLat(121.52,31.32); // Marker经纬度
+const marker = new AMap.Marker({
+   position: position,
+   content: markerContent, // 将 html 传给 content
+   offset: new AMap.Pixel(-13, -30) // 以 icon 的 [center bottom] 为原点
+ });
+
+ map.add(marker);
+
+    
+
+
+  }).catch((e)=>{
+    console.error(e);  //加载错误提示
+  });   
+</script>
+</head>
+<body>
+  <div id="container"></div>
+</body>
+</html>
+
+
+
+
+

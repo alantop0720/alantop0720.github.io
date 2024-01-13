@@ -1,0 +1,4 @@
+iptables -F
+iptables -P INPUT ACCEPT
+iptables -P FORWARD ACCEPT
+iptables -t nat -A POSTROUTING -o enx000ec62e8714 -j MASQUERADE

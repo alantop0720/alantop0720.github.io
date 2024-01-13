@@ -1,0 +1,480 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+        <title>my map</title>
+        <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css"/>
+        <style>
+            html,
+            body,
+            #container {
+                height: 100%;
+                width: 100%;
+            }
+
+            .custom-content-marker {
+                position: relative;
+                width: 25px;
+                height: 34px;
+            }
+
+            .custom-content-marker img {
+                width: 100%;
+                height: 100%;
+            }
+
+            .custom-content-marker .close-btn {
+                position: absolute;
+                top: -6px;
+                right: -8px;
+                width: 15px;
+                height: 15px;
+                font-size: 12px;
+                background: #ccc;
+                border-radius: 50%;
+                color: #fff;
+                text-align: center;
+                line-height: 15px;
+                box-shadow: -1px 1px 1px rgba(10, 10, 10, 0.2);
+            }
+
+            .custom-content-marker .close-btn:hover {
+                background: #666;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container"></div>
+        <script type="text/javascript" src="https://webapi.amap.com/maps?v=2.0&key=342807feae18384a533cf86b62591451"></script>
+        <script type="text/javascript">
+            var position = new AMap.LngLat(121.52, 31.32);
+
+            // 创建地图实例
+            var map = new AMap.Map("container", {
+                zoom: 13,
+                center: position,
+                resizeEnable: true
+            });
+
+            let toolbar;
+            AMap.plugin('AMap.ToolBar',function(){ // 异步加载插件
+            toolbar = new AMap.ToolBar(); // 缩放工具条实例化
+            map.addControl(toolbar);
+            });
+
+
+
+            // 点标记显示内容，HTML要素字符串
+            var markerContent = '' + '<div class="custom-content-marker">' + '   <img src="https://a.amap.com/jsapi_demos/static/demo-center/icons/dir-via-marker.png">' + '   <div class="close-btn" onclick="clearMarker()">X</div>' + '</div>';
+
+            // var marker = new AMap.Marker({
+            //     position: position,
+            //     // 将 html 传给 content
+            //     content: markerContent,
+            //     // 以 icon 的 [center bottom] 为原点
+            //     offset: new AMap.Pixel(-13, -30)
+            // });
+
+            // // 将 markers 添加到地图
+            // map.add(marker);
+
+
+            // var marker = new AMap.Marker({
+            // icon: 'https://a.amap.com/jsapi_demos/static/demo-center/marker/marker-bottom-left.png', // 自定义点标记
+            // position: position, // 基点位置
+            // offset: new AMap.Pixel(0,0), // 设置点标记偏移量
+            // anchor:'bottom-left', // 设置锚点方位
+            // });
+            // map.add(marker);
+
+
+
+
+            // 创建纯文本标记
+            var text = new AMap.Text({
+                text: '民庆家园',
+                anchor: 'center', // 设置文本标记锚点
+                draggable: false,
+                cursor: 'pointer',
+                angle: 10,
+                style: {
+                    'padding': '.5rem 0.5rem',
+                    'margin-bottom': '0.5rem',
+                    // 'border-radius': '.25rem',
+                    'background-color': 'white',
+                    // 'width': '15rem',
+                    'border-width': 0,
+                    'box-shadow': '0 2px 6px 0 rgba(114, 124, 245, .5)',
+                    'text-align': 'center',
+                    'font-size': '9px',
+                    'color': 'red'
+                },
+                position: position
+            });
+
+            text.setMap(map);
+
+
+
+
+
+            var text1 = new AMap.Text({
+                text: 'ZD 殷高路9号',
+                anchor: 'center', // 设置文本标记锚点
+                draggable: false,
+                cursor: 'pointer',
+                angle: 10,
+                style: {
+                    'padding': '.5rem 0.5rem',
+                    'margin-bottom': '0.5rem',
+                    // 'border-radius': '.25rem',
+                    'background-color': 'white',
+                    // 'width': '15rem',
+                    'border-width': 0,
+                    'box-shadow': '0 2px 6px 0 rgba(114, 124, 245, .5)',
+                    'text-align': 'center',
+                    'font-size': '9px',
+                    'color': 'red'
+                },
+                position: [121.493031, 31.320755]
+            });
+
+            text1.setMap(map);
+
+            var text2 = new AMap.Text({
+                text: 'HKKSS 粤秀路355号',
+                anchor: 'center', // 设置文本标记锚点
+                draggable: false,
+                cursor: 'pointer',
+                angle: 10,
+                style: {
+                    'padding': '.5rem 0.5rem',
+                    'margin-bottom': '0.5rem',
+                    // 'border-radius': '.25rem',
+                    'background-color': 'white',
+                    // 'width': '15rem',
+                    'border-width': 0,
+                    'box-shadow': '0 2px 6px 0 rgba(114, 124, 245, .5)',
+                    'text-align': 'center',
+                    'font-size': '9px',
+                    'color': 'red'
+                },
+                position: [121.462006,31.291219]
+            });
+            text2.setMap(map);
+
+
+            var text3 = new AMap.Text({
+                text: 'SHKS 合川路3089号',
+                anchor: 'center', // 设置文本标记锚点
+                draggable: false,
+                cursor: 'pointer',
+                angle: 10,
+                style: {
+                    'padding': '.5rem 0.5rem',
+                    'margin-bottom': '0.5rem',
+                    // 'border-radius': '.25rem',
+                    'background-color': 'white',
+                    // 'width': '15rem',
+                    'border-width': 0,
+                    'box-shadow': '0 2px 6px 0 rgba(114, 124, 245, .5)',
+                    'text-align': 'center',
+                    'font-size': '9px',
+                    'color': 'red'
+                },
+                position: [121.379394, 31.178373]
+            });
+            text3.setMap(map);
+
+            var text4 = new AMap.Text({
+                text: '东贤大厦',
+                anchor: 'center', // 设置文本标记锚点
+                draggable: false,
+                cursor: 'pointer',
+                angle: 10,
+                style: {
+                    'padding': '.5rem 0.5rem',
+                    'margin-bottom': '0.5rem',
+                    // 'border-radius': '.25rem',
+                    'background-color': 'white',
+                    // 'width': '15rem',
+                    'border-width': 0,
+                    'box-shadow': '0 2px 6px 0 rgba(114, 124, 245, .5)',
+                    'text-align': 'center',
+                    'font-size': '9px',
+                    'color': 'red'
+                },
+                position: [121.457447, 31.297633]
+
+
+            });
+            text4.setMap(map);
+
+
+var text5 = new AMap.Text({
+    text: 'CY 美罗家园润苑 650弄15号1203室',
+    anchor: 'center', // 设置文本标记锚点
+    draggable: false,
+    cursor: 'pointer',
+    angle: 10,
+    style: {
+        'padding': '.5rem 0.5rem',
+        'margin-bottom': '0.5rem',
+        // 'border-radius': '.25rem',
+        'background-color': 'white',
+        // 'width': '15rem',
+        'border-width': 0,
+        'box-shadow': '0 2px 6px 0 rgba(114, 124, 245, .5)',
+        'text-align': 'center',
+        'font-size': '9px',
+        'color': 'red'
+    },
+position : [121.33432, 31.399409]
+});
+text5.setMap(map);
+
+var text6 = new AMap.Text({
+    text: 'JLG 鞍山八村',
+    anchor: 'center', // 设置文本标记锚点
+    draggable: false,
+    cursor: 'pointer',
+    angle: 10,
+    style: {
+        'padding': '.5rem 0.5rem',
+        'margin-bottom': '0.5rem',
+        // 'border-radius': '.25rem',
+        'background-color': 'white',
+        // 'width': '15rem',
+        'border-width': 0,
+        'box-shadow': '0 2px 6px 0 rgba(114, 124, 245, .5)',
+        'text-align': 'center',
+        'font-size': '9px',
+        'color': 'red'
+    },
+position : [121.511055,31.280342]
+});
+text6.setMap(map);
+
+var text7 = new AMap.Text({
+    text: 'JLG 昆山市花桥镇金中路188号 花桥象屿都城嘉园二期19号楼 1802',
+    anchor: 'center', // 设置文本标记锚点
+    draggable: false,
+    cursor: 'pointer',
+    angle: 10,
+    style: {
+        'padding': '.5rem 0.5rem',
+        'margin-bottom': '0.5rem',
+        // 'border-radius': '.25rem',
+        'background-color': 'white',
+        // 'width': '15rem',
+        'border-width': 0,
+        'box-shadow': '0 2px 6px 0 rgba(114, 124, 245, .5)',
+        'text-align': 'center',
+        'font-size': '9px',
+        'color': 'red'
+    },
+position : [121.070074,31.290566]
+});
+text7.setMap(map);
+
+var text8 = new AMap.Text({
+    text: 'QPKSS 东庆路1号',
+    anchor: 'center', // 设置文本标记锚点
+    draggable: false,
+    cursor: 'pointer',
+    angle: 10,
+    style: {
+        'padding': '.5rem 0.5rem',
+        'margin-bottom': '0.5rem',
+        // 'border-radius': '.25rem',
+        'background-color': 'white',
+        // 'width': '15rem',
+        'border-width': 0,
+        'box-shadow': '0 2px 6px 0 rgba(114, 124, 245, .5)',
+        'text-align': 'center',
+        'font-size': '9px',
+        'color': 'red'
+    },
+position : [121.154818,31.114335]
+});
+text8.setMap(map);
+
+text7.setMap(map);
+
+var text9 = new AMap.Text({
+    text: '江苏太仓浏河烈士公墓',
+    anchor: 'center', // 设置文本标记锚点
+    draggable: false,
+    cursor: 'pointer',
+    angle: 10,
+    style: {
+        'padding': '.5rem 0.5rem',
+        'margin-bottom': '0.5rem',
+        // 'border-radius': '.25rem',
+        'background-color': 'white',
+        // 'width': '15rem',
+        'border-width': 0,
+        'box-shadow': '0 2px 6px 0 rgba(114, 124, 245, .5)',
+        'text-align': 'center',
+        'font-size': '9px',
+        'color': 'red'
+    },
+position : [121.245804,31.506764]
+});
+text9.setMap(map);
+
+
+var text10 = new AMap.Text({
+    text: '苏州横泾公墓锦绣幕区',
+    anchor: 'center', // 设置文本标记锚点
+    draggable: false,
+    cursor: 'pointer',
+    angle: 10,
+    style: {
+        'padding': '.5rem 0.5rem',
+        'margin-bottom': '0.5rem',
+        // 'border-radius': '.25rem',
+        'background-color': 'white',
+        // 'width': '15rem',
+        'border-width': 0,
+        'box-shadow': '0 2px 6px 0 rgba(114, 124, 245, .5)',
+        'text-align': 'center',
+        'font-size': '9px',
+        'color': 'red'
+    },
+position : [120.510701,31.208514]
+});
+text10.setMap(map);
+
+var text11 = new AMap.Text({
+    text: 'DSKSS',
+    anchor: 'center', // 设置文本标记锚点
+    draggable: false,
+    cursor: 'pointer',
+    angle: 10,
+    style: {
+        'padding': '.5rem 0.5rem',
+        'margin-bottom': '0.5rem',
+        // 'border-radius': '.25rem',
+        'background-color': 'white',
+        // 'width': '15rem',
+        'border-width': 0,
+        'box-shadow': '0 2px 6px 0 rgba(114, 124, 245, .5)',
+        'text-align': 'center',
+        'font-size': '9px',
+        'color': 'red'
+    },
+position : [121.140576,31.130023]
+});
+text11.setMap(map);
+
+var text12 = new AMap.Text({
+    text: '东航金融 金虹桥广场D座 吴中路686弄3号',
+    anchor: 'center', // 设置文本标记锚点
+    draggable: false,
+    cursor: 'pointer',
+    angle: 10,
+    style: {
+        'padding': '.5rem 0.5rem',
+        'margin-bottom': '0.5rem',
+        // 'border-radius': '.25rem',
+        'background-color': 'white',
+        // 'width': '15rem',
+        'border-width': 0,
+        'box-shadow': '0 2px 6px 0 rgba(114, 124, 245, .5)',
+        'text-align': 'center',
+        'font-size': '9px',
+        'color': 'red'
+    },
+position : [121.396043,31.182639]
+});
+text12.setMap(map);
+
+
+
+
+var text13 = new AMap.Text({
+    text: 'HY 崂山路551弄37号201',
+    anchor: 'center', // 设置文本标记锚点
+    draggable: false,
+    cursor: 'pointer',
+    angle: 10,
+    style: {
+        'padding': '.5rem 0.5rem',
+        'margin-bottom': '0.5rem',
+        // 'border-radius': '.25rem',
+        'background-color': 'white',
+        // 'width': '15rem',
+        'border-width': 0,
+        'box-shadow': '0 2px 6px 0 rgba(114, 124, 245, .5)',
+        'text-align': 'center',
+        'font-size': '9px',
+        'color': 'red'
+    },
+    position : [121.52,31.23]
+});
+text13.setMap(map);
+
+
+
+var text14 = new AMap.Text({
+    text: '大宁德必易园',
+    anchor: 'center', // 设置文本标记锚点
+    draggable: false,
+    cursor: 'pointer',
+    angle: 10,
+    style: {
+        'padding': '.5rem 0.5rem',
+        'margin-bottom': '0.5rem',
+        // 'border-radius': '.25rem',
+        'background-color': 'white',
+        // 'width': '15rem',
+        'border-width': 0,
+        'box-shadow': '0 2px 6px 0 rgba(114, 124, 245, .5)',
+        'text-align': 'center',
+        'font-size': '9px',
+        'color': 'red'
+    },
+    position : [121.448594,31.287131]
+});
+text14.setMap(map);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            // // 清除 marker
+            // function clearMarker() {
+
+            //     map.remove(marker);
+            // }
+        </script>
+    </body>
+</html>
