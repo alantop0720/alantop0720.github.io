@@ -1,5 +1,7 @@
 from resources import app
 from resources import student_resource
+from resources import book_resource
+
 
 
 

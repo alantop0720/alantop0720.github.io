@@ -1,5 +1,5 @@
-from modes.book_model import BookModel
-from resource import db
+from models.book_model import BookModel
+from resources import db
 
 
 class BookService:
