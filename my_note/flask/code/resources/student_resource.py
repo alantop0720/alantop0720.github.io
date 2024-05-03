@@ -1,3 +1,5 @@
+from flask_restful import Resource
+from resources import api
 
 
 class StudentResource(Resource):
@@ -10,4 +12,5 @@ class StudentResource(Resource):
     def put(self, student_id: int):
         return {'id': student_id, 'name': 'jane', 'gender': 'female'}
 
-    api.add_resource(StudentResource, '/student/<int:student_id>')
+
+api.add_resource(StudentResource, '/student/<int:student_id>')
