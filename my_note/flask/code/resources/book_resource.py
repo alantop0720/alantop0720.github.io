@@ -18,6 +18,7 @@ class BookResource(Resource):
     #     else:
     #         return {'id': f'Student not found for id:{student_id}'}, 404
 
-
+class BookListResource(Resource):
+    
 
 api.add_resource(BookResource, '/books/<int:book_id>')
