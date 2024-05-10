@@ -35,7 +35,7 @@ usermod -aG sudo alantop
  [samba-share]
  comment = samba share
  path =/smbshare
- read only=on
+ read only=no
  browsable=yes
  writeable=yes
  
