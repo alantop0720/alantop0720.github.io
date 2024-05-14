@@ -1,7 +1,7 @@
 ## 安装netstat工具
 
 ```
-apt-get install net-tools
+apt install net-tools
 ```
 
 
@@ -22,6 +22,8 @@ usermod -aG sudo alantop
 
  ```
  cat /etc/os-release
+ cat /etc/debian_version
+ 
  ip a
  apt update
  apt install samba
@@ -41,7 +43,7 @@ usermod -aG sudo alantop
  
  useadd smbuser
  smbpasswd -a smbuser
- chown smbuser:smbuser /smbshare/
+ chown -R smbuser:smbuser /smbshare/
  
  systmctl restart smbd
  
