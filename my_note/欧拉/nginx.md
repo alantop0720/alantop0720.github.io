@@ -1,5 +1,5 @@
 目录 /usr/share/nginx/html
-conf /etc/nginx
+conf /etc/nginx/nginx.conf
 
 dnf clean all
 dnf makecache
