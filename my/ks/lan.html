@@ -1,122 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="zh">
 
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>project</title>
 
     <style>
-        p.small {line-height:70%;}
-        p.big {line-height:300%;}
-
-        p.big {
-            margin-left: 24ch;
+        /* 全局文本样式设置，统一行间距等基本样式 */
+        body {
+            line-height: 1.5;
+            font-family: Arial, sans-serif;
+            /* 设置一种常见的字体，可根据需求替换 */
         }
 
-            .a {
-                width: 400px;
-                height: 220px;
-                float: left;
-                margin-left: 20px;
-                margin-top: 20px;
-                background-color: rgb(236, 227, 186);
-                color: rgb(17, 162, 82);
-                font-size: 12;
-                padding-left:50px
 
+        /* 主要的容器样式，设置宽度、高度、浮动等基本属性 */
+        .a {
+            width: 400px;
+            height: 400px;
+            float: left;
+            margin: 20px;
+            /* 简化外边距设置，上下左右都为20px */
+            background-color: #f4f0e6;
+            /* 淡雅的米白色背景 */
+            color: #4d8c64;
+            /* 淡雅的深绿色文字 */
+            font-size: 12px;
+            padding: 20px 50px;
+            /* 简化内边距设置，上下为20px，左右为50px */
+            box-sizing: border-box;
+            /* 确保内边距和边框包含在元素宽度内 */
+        }
 
-            }
+        /* 标题的样式类 */
+        .title-class {
+            color: #2a523e;
+            /* 更深一点的绿色作为标题颜色，与正文区分 */
+            font-size: 18px;
+            /* 比正文文字大一些 */
+            margin: 10px 0;
+            /* 上下外边距设置为10px，左右为0 */
+            text-align: center;
+            /* 标题居中对齐 */
+            font-weight: bold;
+            /* 加粗字体，突出标题 */
+        }
 
-            
+        /* 链接的样式类，通过h2控制 */
+        .link-class {
+            color: #336655;
+            /* 淡雅的深绿色，与其他元素颜色协调 */
+            font-size: 16px;
+            /* 和之前版本链接字体大小一样 */
+            margin: 10px 0;
+            /* 上下外边距设置为10px，左右为0 */
+            text-align: left;
+            /* 链接居左对齐 */
+            font-weight: normal;
+            /* 可根据需求设置字体粗细，这里设置为正常 */
+        }
 
-            .a a:link {
-                color: rgb(17, 162, 82);
-            }
-            .a a:visited {
-            color: #ff0000; /* 设置已经被点击过的链接的颜色 */
-            }
+        /* 链接未访问时的样式 */
+        .a.link-class h2 a:link {
+            color: #5e9c79;
+            /* 更淡雅的深绿色，与整体文字颜色协调且有区分 */
+            text-decoration: none;
+            /* 去除默认下划线，可根据需求保留或设置其他样式 */
+        }
 
-            .a a:active {
-            color: #ff0000; /* 设置链接被点击时的颜色 */
-            }
+        /* 链接已访问时的样式 */
+        .a.link-class h2 a:visited {
+            color: #c85050;
+            /* 淡雅的暗红色，用于表示已访问过的 链接 */
+            text-decoration: none;
+        }
 
+        /* 链接点击时的样式 */
+        .a.link-class h2 a:active {
+            color: #c85050;
+            /* 点击时也设置为同样的淡雅暗红色，保持一致性 */
+            text-decoration: underline;
+            /* 点击时添加下划线，突出点击状态 */
+        }
 
-            .b {
-                clear: left;
-            }
-        </style>
-
+        /* 清除浮动的类，用于布局排版 */
+        .b {
+            clear: left;
+        }
+    </style>
 </head>
 
-
-
-
-
 <body>
-
-
     <div class="a">
-        <h1>
-            <a href="http://127.0.0.1:8081/#/login?redirect=%2Fpanel%2Findex" target="_blank">127.0.0.1:8081</a>
-        </h1>
-
-        <h1><a href="http://150.158.87.93:8081" target="_blank">150.158.87.93:8081</a></h1>
-        <h1><a href="https://dataease.fit2cloud.com/" target="_blank">dataease</a><br></h1>
-    </div>
-    <div class="a">
-        <h1>
+        <h1 class="title-class">base service</h1>
+        <h2 class="link-class">
             <a href="http://10.2.3.110:9720" target="_blank">10.2.3.110:9720</a><br>
-            <a href="http://qv-china.com:9720" target="_blank">qv-china.com:9720</a>
-        </h1>
-
+            <a href="http://hcl.qv-china.com:9720" target="_blank">hcl dufs</a><br>
+            <a href="http://hcl.qv-china.com:9999" target="_blank">ugreen nas</a><br>
+            <a href="http://hcl.qv-china.com:9980/" target="_blank">gitlab</a>
+        </h2>
     </div>
     <div class="a">
-        <h1><a href="http://10.2.3.7/zabbix" target="_blank">10.2.3.7/zabbix</a></h1>
-        <h1><a href="https://www.zabbix.com/documentation/current/zh/manual" target="_blank">zabbix手册页</a></h1>
+        <h1 class="title-class">187 anc hcl dev</h1>
+        <h2 class="link-class">
+            <a href="http://110.40.223.187:8060/wrcs/call-face" target="_blank">外网187服务器wrcs</a><br>
+            <a href="http://110.40.223.187:8060/wrcs/labor-hours" target="_blank">外网187服务器IRS</a><br>
+            <a href="http://hcl.qv-china.com:8060" target="_blank">合川路服务器</a><br>
+            <a href="https://10.20.50.71/ui/#/login" target="_blank">bs虚拟机管理平台71</a><br>
+        </h2>
     </div>
     <div class="a">
-        <h1>4</h1>
+        <h1 class="title-class">scg 114 dev</h1>
+        <h2 class="link-class">
+            <a href="http://210.22.133.114:16380" target="_blank">外网114管理后台</a><br>
+            <a href="http://210.22.133.114:16300/doc.html#/home" target="_blank">外网114接口地址</a><br>
+            <a href="http://192.168.2.163" target="_blank">内网163服务器后台</a><br>
+            <a href="http://192.168.2.163:8400/doc.html#/home" target="_blank">内网163服务器接口</a><br>
+        </h2>
     </div>
     <div class="a">
-        <h1>5</h1>
-    </div>
-    <div class="a">
-
-    </div>
-    <div class="a">
-        <h1>
-
-        </h1>
-
-        <h1>
-
-        </h1>
-    </div>
-    <div class="a">
-        <h1>
-
-        </h1>
-
-        <h1>
-
-        </h1>
-
-
-    </div>
-    <div class="a">
-        <h1>9</h1>
+        <h1 class="title-class">Product</h1>
+        <h2 class="link-class">
+            <a href="https://www.zabbix.com/documentation/current/zh/manual" target="_blank">zabbix手册页</a><br>
+            <a href="https://dataease.fit2cloud.com/" target="_blank">dataease</a><br>
+            <a href="http://cloud.ankepower.com:9568/iform/#/formManagement/formManage"
+                target="_blank">ankepower</a><br>
+        </h2>
     </div>
     <div class="a b">
-        <h1>
-
-        </h1>
+        <h1 class="title-class">blank</h1>
+        <h2 class="link-class">blank
+        </h2>
     </div>
-
-
-
-
-
-    
 </body>
+
 </html>
