@@ -10,6 +10,21 @@
         body {
             background-color: #f4f4f4;
             color: #333;
+            /* 设置最大宽度为比如1200px，可根据实际需求调整 */
+            max-width: 1200px;
+            /* 水平居中 */
+            margin: 0 auto;
+        }
+
+        .resource-section {
+            /* 设置宽度为80%，可根据需要调整 */
+            width: 80%;
+            /* 设置上下间距为20px，左右自动居中 */
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         }
 
         /* 列表项的样式 */
@@ -22,19 +37,23 @@
             margin-bottom: 10px;
         }
 
-        /* 链接的样式 */
         a {
-            display: block;
+            /* 不再设置为块级元素，改为内联块元素，以便多个链接可以在一行显示（如果需要的话） */
+            display: inline-block;
             padding: 10px;
             background-color: #fff;
             border-radius: 5px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
             color: #007BFF;
             text-decoration: none;
+            /* 添加过渡效果，使鼠标悬停时的样式变化更平滑 */
+            transition: all 0.3s ease;
         }
 
         a:hover {
             text-decoration: underline;
+            /* 鼠标悬停时背景色稍微变浅 */
+            background-color: #f9f9f9;
         }
     </style>
 </head>
@@ -51,6 +70,14 @@
     <div class="resource-section">
         <h2>weather</h2>
         <a href="https://www.msn.cn/zh-cn/weather/hourlyforecast?ocid=ansmsnweather">weather</a>
+    </div>
+
+    <div class="resource-section">
+        <h2>movie</h2>
+        <a href="https://tv.wandhi.com/">vip movie</a>
+        <a href="https://damyzl.wiki/">大米星球</a>
+
+
     </div>
 
 </body>
