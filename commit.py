@@ -1,5 +1,6 @@
 from git import Repo
 
+
 def auto_commit(repo_path, commit_message):
     try:
         # 初始化仓库对象
@@ -18,6 +19,7 @@ def auto_commit(repo_path, commit_message):
         print("提交成功！")
     except Exception as e:
         print(f"提交失败: {e}")
+
 
 # 使用示例
 repo_path = 'D:/alantop_dir/alantop_data/alantop_git/github'  # 替换为你的Git仓库路径
