@@ -92,7 +92,7 @@
             font-size: 0.9em;
             margin-top: 5px;
         }
-        
+
         /* 搜索相关样式 */
         .search-highlight {
             background-color: #ffeb3b;
@@ -100,21 +100,21 @@
             padding: 2px 4px;
             border-radius: 3px;
         }
-        
+
         .search-result-item {
             padding: 10px 15px;
             cursor: pointer;
             border-bottom: 1px solid #eee;
         }
-        
+
         .search-result-item:hover {
             background-color: #f8f9fa;
         }
-        
+
         .search-result-item:last-child {
             border-bottom: none;
         }
-        
+
         .search-category {
             font-size: 0.85em;
             color: #666;
@@ -124,14 +124,8 @@
 </head>
 
 <body>
-    <div style="position: fixed; top: 0; left: 0; right: 0; background: #f8f9fa; padding: 10px; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-        <div style="max-width: 1100px; margin: 0 auto;">
-            <input type="text" id="searchInput" placeholder="搜索软件..." 
-                   style="width: 100%; padding: 10px 15px; border: 2px solid #007bff; border-radius: 30px; font-size: 16px; outline: none;">
-            <div id="searchResults" style="display: none; margin-top: 10px; max-height: 300px; overflow-y: auto; background: white; border-radius: 5px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);"></div>
-        </div>
-    </div>
-    
+
+
     <div style="margin-top: 70px;"></div>
 
     <div class="container">
@@ -270,13 +264,13 @@
                         target="_blank">百度网盘下载</a>
                 </div>
                 <div class="software-item">
-                    <b>windows 2016 64位版本</b> SHA1 ddedf3ace182587baa268ab8ae0d9ea395a6da22
+                    <b>windows server 2016 64位版本</b> SHA1 ddedf3ace182587baa268ab8ae0d9ea395a6da22
                     <br />ed2k://|file|cn_windows_server_2016_vl_x64_dvd_11636695.iso|6302720000|44742A3D464B9765203E2A4DB73FF704|/
                 </div>
                 <div class="software-item">
-                    <b>windows 2019 64位版本</b> SHA1 c27d4f4721433d249ca592c13bd265e864629934
+                    <b>windows server 2019 64位版本</b> SHA1 c27d4f4721433d249ca592c13bd265e864629934
                 </div>
-                <br />ed2k://|file|cn_windows_server_2019_updated_jan_2020_x64_dvd_4bbe2c37.iso|5608552448|39C663ABF26079240030395C7CB3F975|/<br />
+                ed2k://|file|cn_windows_server_2019_updated_jan_2020_x64_dvd_4bbe2c37.iso|5608552448|39C663ABF26079240030395C7CB3F975|/<br />
 
                 <p class="red-bold-text">office</p>
 
@@ -1092,161 +1086,14 @@
                     -Win和Linux互传文件的工具
 
                 </div>
-                <div class="software-item">
-                    <a href="https://alantop.lanzoui.com/ij9uglst3ja" target="_blank">迅雷11.1.1038
-                        本地SVIP绿色精简版</a>
-                </div>
+
                 <div class="software-item">
                     <a href="http://www.verysync.com/download.html" target="_blank">微力同步</a>
                 </div>
             </div>
         </div>
 
-    <script>
-        // 搜索功能实现 - 简化版
-        window.addEventListener('load', function() {
-            const searchInput = document.getElementById('searchInput');
-            const searchResults = document.getElementById('searchResults');
-            let searchItems = [];
-            
-            // 初始化：收集所有可搜索的内容
-            function initSearchItems() {
-                const blocks = document.querySelectorAll('.block');
-                blocks.forEach(block => {
-                    const h3Element = block.querySelector('h3');
-                    if (!h3Element) return; // 跳过没有h3的块
-                    
-                    const category = h3Element.textContent.trim();
-                    const softwareItems = block.querySelectorAll('.software-item');
-                    
-                    softwareItems.forEach(item => {
-                        const links = item.querySelectorAll('a');
-                        links.forEach(link => {
-                            try {
-                                // 确保链接有文本内容
-                                if (link && link.textContent.trim()) {
-                                    searchItems.push({
-                                        text: link.textContent.toLowerCase(),
-                                        originalText: link.textContent,
-                                        category: category,
-                                        element: link,
-                                        itemElement: item,
-                                        blockElement: block
-                                    });
-                                }
-                            } catch (e) {
-                                // 忽略单个项的错误，继续处理其他项
-                                console.warn('处理搜索项时出错:', e);
-                            }
-                        });
-                    });
-                });
-            }
-            
-            // 初始化搜索项
-            initSearchItems();
-            
-            // 清除所有高亮
-            function clearHighlights() {
-                const highlights = document.querySelectorAll('.search-highlight');
-                highlights.forEach(highlight => {
-                    const parent = highlight.parentNode;
-                    parent.replaceChild(document.createTextNode(highlight.textContent), highlight);
-                });
-            }
-            
-            // 搜索函数
-            searchInput.addEventListener('input', function() {
-                const searchTerm = this.value.trim().toLowerCase();
-                
-                // 清空结果
-                searchResults.innerHTML = '';
-                
-                if (searchTerm.length === 0) {
-                    searchResults.style.display = 'none';
-                    clearHighlights();
-                    return;
-                }
-                
-                // 查找匹配项
-                const results = searchItems.filter(item => 
-                    item.text.includes(searchTerm)
-                );
-                
-                // 显示搜索结果
-                if (results.length === 0) {
-                    searchResults.innerHTML = '<div class="search-result-item">没有找到匹配的内容</div>';
-                } else {
-                    // 限制显示结果数量
-                    const displayResults = results.slice(0, 10);
-                    
-                    displayResults.forEach(result => {
-                        // 创建结果项
-                        const resultItem = document.createElement('div');
-                        resultItem.className = 'search-result-item';
-                        
-                        // 高亮搜索词
-                        const highlightedText = result.originalText.replace(
-                            new RegExp(searchTerm, 'gi'),
-                            match => `<span class="search-highlight">${match}</span>`
-                        );
-                        
-                        resultItem.innerHTML = `${highlightedText} <span class="search-category">(${result.category})</span>`;
-                        
-                        // 添加点击事件
-                        resultItem.addEventListener('click', function() {
-                            searchResults.style.display = 'none';
-                            
-                            // 清除之前的高亮
-                            clearHighlights();
-                            
-                            // 高亮匹配的文本
-                            const textNode = result.element.firstChild;
-                            if (textNode && textNode.nodeType === Node.TEXT_NODE) {
-                                const text = textNode.textContent;
-                                const newContent = document.createElement('span');
-                                newContent.innerHTML = text.replace(
-                                    new RegExp(searchTerm, 'gi'),
-                                    match => `<span class="search-highlight">${match}</span>`
-                                );
-                                result.element.replaceChild(newContent, textNode);
-                            }
-                            
-                            // 滚动到对应的块
-                            result.blockElement.scrollIntoView({ 
-                                behavior: 'smooth', 
-                                block: 'center' 
-                            });
-                            
-                            // 添加视觉强调效果
-                            result.blockElement.style.backgroundColor = '#fff9c4';
-                            setTimeout(() => {
-                                result.blockElement.style.backgroundColor = '';
-                            }, 2000);
-                        });
-                        
-                        searchResults.appendChild(resultItem);
-                    });
-                }
-                
-                searchResults.style.display = 'block';
-            });
-            
-            // 点击页面其他地方关闭搜索结果
-            document.addEventListener('click', function(event) {
-                if (!searchInput.contains(event.target) && !searchResults.contains(event.target)) {
-                    searchResults.style.display = 'none';
-                }
-            });
-            
-            // ESC键关闭搜索结果
-            document.addEventListener('keydown', function(event) {
-                if (event.key === 'Escape') {
-                    searchResults.style.display = 'none';
-                    searchInput.blur();
-                }
-            });
-        });
-    </script>
+
 </body>
+
 </html>
