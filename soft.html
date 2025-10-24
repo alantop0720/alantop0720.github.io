@@ -4,6 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入本地 jQuery -->
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <!-- 引入本地 Bootstrap CSS -->
+    <link rel="stylesheet" href="static/plugins/bootstrap-3.4.1/css/bootstrap.min.css">
     <style type="text/css">
         .red-bold-text {
             color: red;
@@ -69,56 +73,23 @@
             color: white;
         }
 
-        /* 为重要下载链接添加按钮样式 */
-        .download-link {
-            background-color: #28a745;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 5px;
-            font-weight: bold;
-        }
 
-        .download-link:hover {
-            background-color: #218838;
-        }
 
         /* 优化排版 */
         .software-item {
             margin-bottom: 15px;
         }
 
-        .software-description {
-            color: #666;
-            font-size: 0.9em;
-            margin-top: 5px;
-        }
-
-        /* 搜索相关样式 */
-        .search-highlight {
-            background-color: #ffeb3b;
+        /* 表格样式 */
+        .first-row {
+            background-color: #3498db;
+            color: white;
             font-weight: bold;
-            padding: 2px 4px;
-            border-radius: 3px;
         }
 
-        .search-result-item {
-            padding: 10px 15px;
-            cursor: pointer;
-            border-bottom: 1px solid #eee;
-        }
-
-        .search-result-item:hover {
-            background-color: #f8f9fa;
-        }
-
-        .search-result-item:last-child {
-            border-bottom: none;
-        }
-
-        .search-category {
-            font-size: 0.85em;
-            color: #666;
-            margin-left: 10px;
+        table {
+            width: 100%;
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -128,7 +99,38 @@
 
     <div style="margin-top: 70px;"></div>
 
+
+
     <div class="container">
+        <!-- 插入表格 -->
+        <table class="table table-bordered">
+            <tbody>
+                <tr class="first-row">
+                    <td>windows 10 22h2</td>
+                </tr>
+                <tr>
+                    <td> <a href="https://pan.baidu.com/s/1-KK-jXOw0uAKcgtVTTYLAw?pwd=8888
+">百度网盘下载</a></td>
+
+                </tr>
+
+            </tbody>
+            <tbody>
+                <tr class="first-row">
+                    <td>office 2016 64位版本</td>
+                </tr>
+                <tr>
+                    <td>ed2k://|file|cn_office_professional_plus_2016_x86_x64_dvd_6969182.iso|2588266496|27EEA4FE4BB13CD0ECCDFC24167F9E01|/
+                    </td>
+                </tr>
+                <tr>
+                    <td>SHA1 277926A41B472EE38CA0B36ED8F2696356DCC98F</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
 
         <div class=" block">
             <h3>2025.10.16 新机安装</h3>
@@ -267,10 +269,7 @@
 
                 <p class="red-bold-text">windows</p>
 
-                <div class="software-item">
-                    <b>windowns 10 22h2</b> <a href="https://pan.baidu.com/s/1-KK-jXOw0uAKcgtVTTYLAw?pwd=8888"
-                        target="_blank">百度网盘下载</a>
-                </div>
+
                 <div class="software-item">
                     <b>windows server 2016 64位版本</b> SHA1 ddedf3ace182587baa268ab8ae0d9ea395a6da22
                     <br />ed2k://|file|cn_windows_server_2016_vl_x64_dvd_11636695.iso|6302720000|44742A3D464B9765203E2A4DB73FF704|/
@@ -286,10 +285,7 @@
                     <b>office 2019 64位版本</b> SHA1 d850365b23e1e1294112a51105a2892b2bd88eb9
                     <br />ed2k://|file|cn_office_professional_plus_2019_x86_x64_dvd_5e5be643.iso|3775004672|1E4FFA5240F21F60DC027F73F1C62FF4|/
                 </div>
-                <div class="software-item">
-                    <b>office 2016 64位版本</b> SHA1 277926A41B472EE38CA0B36ED8F2696356DCC98F
-                    <br />ed2k://|file|cn_office_professional_plus_2016_x86_x64_dvd_6969182.iso|2588266496|27EEA4FE4BB13CD0ECCDFC24167F9E01|/
-                </div>
+
 
 
 
@@ -1054,6 +1050,8 @@
             </div>
         </div>
 
+        <!-- 引入本地 Bootstrap JS -->
+        <script src="static/plugins/bootstrap-3.4.1/js/bootstrap.min.js"></script>
 
 </body>
 
