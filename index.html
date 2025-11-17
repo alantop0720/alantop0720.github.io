@@ -10,6 +10,12 @@
             font-weight: bold;
         }
 
+        .highlight-link {
+            color: #ff7700;
+            font-size: larger;
+            font-weight: bold;
+        }
+
         .nav {
             height: 40px;
             background-color: #333;
@@ -25,9 +31,10 @@
 
         .btli {
             float: left;
-            width: 100px;
+            width: 120px;
             line-height: 40px;
             text-align: center;
+            margin-right: 2px;
         }
 
         .navlist a {
@@ -43,12 +50,7 @@
             line-height: 30px;
         }
 
-        .top {
-            border: 0 solid #F00;
-            height: 90px;
-            color: #00F;
-            margin-left: 165px;
-        }
+        /* 已完全移除未使用的.top类 */
 
         h1,
         h2 {
@@ -57,6 +59,8 @@
 
         table {
             width: 1200px;
+            border-collapse: separate;
+            border-spacing: 20px 0;
         }
 
         th,
@@ -85,16 +89,16 @@
     <div class="nav">
         <ul class="navlist">
             <li class="btli">
-                <a href="soft.html">soft</a>
+                <a href="soft.html" target="_blank">Soft</a>
             </li>
             <li class="btli">
-                <a href="op.html">op</a>
+                <a href="op.html" target="_blank">Devops</a>
             </li>
             <li class="btli">
-                <a href="dev.html">dev</a>
+                <a href="dev.html" target="_blank">Development</a>
             </li>
             <li class="btli">
-                <a href="service.html">service</a>
+                <a href="service.html" target="_blank">Service</a>
             </li>
         </ul>
     </div>
@@ -105,8 +109,8 @@
                     <p class="red-bold-text">提示词</p>
                 </td>
                 <td colspan="6" valign="top">
-                    <a href="https://www.aitmpl.com/agents" target=" _blank" class="download-link">aitmpl</a>
-                    <a href="https://github.com/vijaythecoder/awesome-claude-agents" target=" _blank"
+                    <a href="https://www.aitmpl.com/agents" target="_blank" class="download-link">aitmpl</a>
+                    <a href="https://github.com/vijaythecoder/awesome-claude-agents" target="_blank"
                         class="download-link">claude-agents</a>
 
                 </td>
@@ -117,9 +121,9 @@
                     <p class="red-bold-text">画图</p>
                 </td>
                 <td colspan="6" valign="top">
-                    <a href="https://mermaid.nodejs.cn/" target=" _blank" class="download-link">mermaid</a>
-                    <a href="https://draw.io/" target=" _blank" class="download-link">draw.io</a>
-                    <a href="https://pkmer.cn/" target=" _blank" class="download-link">pkmer</a>
+                    <a href="https://mermaid.nodejs.cn/" target="_blank" class="download-link">mermaid</a>
+                    <a href="https://draw.io/" target="_blank" class="download-link">draw.io</a>
+                    <a href="https://pkmer.cn/" target="_blank" class="download-link">pkmer</a>
                 </td>
             </tr>
             <tr>
@@ -127,7 +131,7 @@
                     <p class="red-bold-text">devops</p>
                 </td>
                 <td colspan="6" valign="top">
-                    <a href="https://www.server-world.info/en/" target=" _blank" class="download-link">server
+                    <a href="https://www.server-world.info/en/" target="_blank" class="download-link">server
                         config</a>
 
                 </td>
@@ -156,14 +160,14 @@
                     <a href="https://openproxylist.com/" target="_blank" class="download-link">openproxylist</a>
                     <a href="https://karing.app/" target="_blank" class="download-link">karing</a>
                     <a href="https://github.com/Alvin9999/new-pac/wiki/ss%E5%85%8D%E8%B4%B9%E8%B4%A6%E5%8F%B7"
-                        target="_blank" class="download-link">免费SSR</a>
+                        target="_blank" target="_blank" class="download-link">免费SSR</a>
                     <a href="https://gitlab.com/zhifan999/fq/-/wikis/ss%E5%85%8D%E8%B4%B9%E8%B4%A6%E5%8F%B7"
-                        target="_blank" class="download-link">免费SSR镜像</a>
+                        target="_blank" target="_blank" class="download-link">免费SSR镜像</a>
                     <a href="https://ssr.bettershop.club/daily-ssr-node.html" target="_blank"
                         class="download-link">加速器</a>
                     <a href="https://www.axjsq.com/" target="_blank" class="download-link">安心加速器</a>
                     <a href="https://nodefree.org/f/freenode" target="_blank" class="download-link">nodefree</a>
-                    <a href="https://www.ssrtool.com/" class="download-link">ssrtool.com</a>
+                    <a href="https://www.ssrtool.com/" class="download-link" target="_blank">ssrtool.com</a>
                     <a href="https://github.com/shadowsocks/shadowsocks-windows/releases" target="_blank"
                         class="download-link">shadowsocks</a>
                     <a href="https://prism-break.org" target="_blank" class="download-link">prism-break</a>
@@ -178,18 +182,22 @@
                     <p class="red-bold-text">AI</p>
                 </td>
                 <td colspan="6" valign="top">
+                    <a href="https://www.tongyi.com/" target="_blank" class="highlight-link">通义千问</a>
+                    <a href="https://chat.deepseek.com/sign_in" target="_blank" class="highlight-link">deepseek</a>
+                    <a href="https://www.doubao.com/" target="_blank" class="highlight-link">豆包</a>
+
                     <a href="https://claude.ai/" target="_blank">claude</a>
                     <a href="https://openai.com/" target="_blank">openai</a>
                     <a href="https://openrouter.ai/" target="_blank">openrouter</a>
                     <a href="https://huggingface.co/" target="_blank">huggingface</a>
                     <a href="https://easychat.top/" target="_blank">easychat</a>
-                    <a href="https://chat.deepseek.com/sign_in" target="_blank">deepseek</a>
-                    <a href="https://github.com/chatanywhere/GPT_API_free?tab=readme-ov-file"
+
+                    <a href="https://github.com/chatanywhere/GPT_API_free?tab=readme-ov-file" target="_blank"
                         target="_blank">GPT_API_free</a>
                     <a href="https://web.chatboxai.app/" target="_blank">chatboxai</a>
-                    <a href="https://www.doubao.com/" target="_blank">豆包</a>
+
                     <a href="https://kimi.moonshot.cn/" target="_blank">kimi</a>
-                    <a href="https://tongyi.aliyun.com/qianwen/" target="_blank">通义千问</a>
+
                     <a href="https://www.perplexity.ai/" target="_blank">perplexity</a>
                     <a href="https://ai.meta.com/" target="_blank">meta ai</a>
                     <a href="https://code.fittentech.com/tutor_vscode_zh" target="_blank">fittentech</a>
@@ -211,11 +219,11 @@
             <tr>
                 <td valign="top">python</td>
                 <td colspan="6" valign="top">
-                    <a href="http://www.python.org/doc/">python docs</a>
-                    <a href="https://wiki.python.org/moin/TkInter/">tkinter</a>
-                    <a href="http://www.autohotkey.com/">autohotkey</a>
-                    <a href="https://uv.doczh.com/">uv手册</a>
-                    <a href="https://conda-forge.org/">conda-forge</a>
+                    <a href="http://www.python.org/doc/" target="_blank">python docs</a>
+                    <a href="https://wiki.python.org/moin/TkInter/" target="_blank">tkinter</a>
+                    <a href="http://www.autohotkey.com/" target="_blank">autohotkey</a>
+                    <a href="https://uv.doczh.com/" target="_blank">uv手册</a>
+                    <a href="https://conda-forge.org/" target="_blank">conda-forge</a>
             </tr>
 
             <tr>
@@ -225,14 +233,14 @@
                 </td>
                 <td width="1165">
 
-                    <a href="https://www.tree666.com/" arget="_blank">tree666</a>
+                    <a href="https://www.tree666.com/" target="_blank">tree666</a>
                     <a href="https://lrepacks.net/" target="_blank">lrepacks</a>
                     <a href="https://51.ruyo.net/" target="_blank">如有乐享</a>
                     <a href="https://www.freedidi.com/" target="_blank">零度解说</a>
                     <a href="https://masuit.com/" target="_blank">懒得勤快</a>
                     <a href="https://cracksurl.com/" target="_blank">cracksurl</a>
                     <a href="https://www.ypojie.com/" target="_blank">易破解</a>
-                    <a href="http://www.52pojie.cn/" target="_blank">吾爱破解</a>
+                    <a href="http://www.52pojie.cn/" target="_blank" class="highlight-link">吾爱破解</a>
                     <a href="https://www.whg6.com/" target="_blank">whg6</a>
                     <a href="https://meta.appinn.net/" target="_blank">小众软件</a>
                     <a href="https://rutracker.net/forum/index.php" target="_blank">rutracker.net</a>
@@ -250,10 +258,10 @@
                     <a href="https://www.kmspico2k.com/" target="_blank">kmspico2k</a>
                     <a href="https://github.com/massgravel/Microsoft-Activation-Scripts" target="_blank">activation
                         scripts</a>
-                    <a href="https://alternativeto.net">alternativeto.net</a>
+                    <a href="https://alternativeto.net" target="_blank">alternativeto.net</a>
 
-                    <a href="https://en.taiwebs.com/windows/">taiwebs</a>
-                    <a href="https://filehippo.com/zh/">filehippo</a>
+                    <a href="https://en.taiwebs.com/windows/" target="_blank">taiwebs</a>
+                    <a href="https://filehippo.com/zh/" target="_blank">filehippo</a>
                 </td>
             </tr>
 
@@ -285,10 +293,10 @@
                     <a href="http://www.postgres.cn/docs/14/" target="_blank" class="download-link">pg14文档</a>
                     <a href="https://www.uniontech.com/" target="_blank" class="download-link">统信</a>
                     <a href="https://www.kylinos.cn/" target="_blank" class="download-link">麒麟</a>
-                    <a href="https://mirrors.huaweicloud.com/home">华为云镜像</a>
+                    <a href="https://mirrors.huaweicloud.com/home" target="_blank">华为云镜像</a>
                     <a
                         href="https://docs.openeuler.org/zh/docs/22.03_LTS_SP2/docs/Administration/administration.html">欧拉22文档</a>
-                    <a href="https://www.openeuler.org/zh/">openeuler</a>
+                    <a href="https://www.openeuler.org/zh/" target="_blank">openeuler</a>
                     <a href="https://developer.aliyun.com/mirror/" target="_blank" class="download-link">阿里巴巴镜像站点</a>
                     <a href="https://mirrors.ustc.edu.cn/help/debian.html#__tabbed_3_1" target="_blank"
                         class="download-link">中科大镜像</a>
@@ -317,12 +325,12 @@
                     <strong></strong>
                 </td>
                 <td colspan="6" valign="top">
-                    <a href="http://www.chinaunix.net/">chinaunix</a>
-                    <a href="http://www.pcbookcn.com/article/30_1.htm">中华书库</a>
-                    <a href="http://www.ubuntukylin.com/">中国ubuntu kylin</a>
-                    <a href="http://www.deepin.org/">深度Linuxdeepin</a>
-                    <a href="http://os.51cto.com/linux/">51cto</a>
-                    <a href="http://www.lucky8k.com/">veket</a>
+                    <a href="http://www.chinaunix.net/" target="_blank">chinaunix</a>
+                    <a href="http://www.pcbookcn.com/article/30_1.htm" target="_blank">中华书库</a>
+                    <a href="http://www.ubuntukylin.com/" target="_blank">中国ubuntu kylin</a>
+                    <a href="http://www.deepin.org/" target="_blank">深度Linuxdeepin</a>
+                    <a href="http://os.51cto.com/linux/" target="_blank">51cto</a>
+                    <a href="http://www.lucky8k.com/" target="_blank">veket</a>
                 </td>
             </tr>
             <tr>
@@ -330,16 +338,16 @@
                     <strong></strong>
                 </td>
                 <td colspan="6" valign="top">
-                    <a href="http://www.linuxforums.org/">linuxforums</a>
-                    <a href="http://www.linuxquestions.org/">
+                    <a href="http://www.linuxforums.org/" target="_blank">linuxforums</a>
+                    <a href="http://www.linuxquestions.org/" target="_blank">
                         linuxquestions</a>
-                    <a href="http://fedoraforum.org/">fedoraforum</a>
+                    <a href="http://fedoraforum.org/" target="_blank">fedoraforum</a>
                     <strong>开源
                     </strong>
-                    <a href="http://www.osprg.org/">
+                    <a href="http://www.osprg.org/" target="_blank">
                         开源编程网</a>
 
-                    <a href="http://gcc.gnu.org/onlinedocs/">gcc在线文档</a>
+                    <a href="http://gcc.gnu.org/onlinedocs/" target="_blank">gcc在线文档</a>
                 </td>
             </tr>
 
@@ -390,7 +398,7 @@
                 </td>
                 <td colspan="6" valign="top">
                     <a href="https://ywebook.com/" target="_blank">ywebook</a>
-                    <a href="https://z-library.sk/" target="_blank">z-library</a>
+                    <a href="https://z-library.sk/" target="_blank" class="highlight-link">z-library</a>
                     <a href="http://www.pdfdrive.com/" target="_blank">pdfdrive</a>
                     <a href="https://www.jiumodiary.com" target="_blank">鸠摩搜索</a>
                     <a href="https://www.jb51.net/" target="_blank">脚本之家</a>
@@ -460,19 +468,19 @@
                     <strong>qt</strong>
                 </td>
                 <td colspan="6" valign="top">
-                    <a href="http://www.qtcn.org/bbs/">qt论坛</a>
-                    <a href="https://doc.qt.io/qt-5/reference-overview.html">qt5文档</a>
-                    <a href="https://www.qt.io/product/qt6/qml-book?hsLang=en">Qt6 QML Book</a>
+                    <a href="http://www.qtcn.org/bbs/" target="_blank">qt论坛</a>
+                    <a href="https://doc.qt.io/qt-5/reference-overview.html" target="_blank">qt5文档</a>
+                    <a href="https://www.qt.io/product/qt6/qml-book?hsLang=en" target="_blank">Qt6 QML Book</a>
                     <a href="http://c.biancheng.net/qt/" target="_blank">qt教程</a>
                     <a href="https://riverbankcomputing.com/software/pyqt/intro" target="_blank">pyqt6官网</a>
                     <a href="https://doc.qt.io/qtforpython/quickstart.html" target="_blank">pyside6官网</a>
                     <a href="https://gitee.com/muzing/PySide6-Code-Tutorial" target="_blank">pyside6示例代码</a>
-                    <a href="https://www.pythonguis.com/tutorials/pyside6-creating-your-first-window/"
+                    <a href="https://www.pythonguis.com/tutorials/pyside6-creating-your-first-window/" target="_blank"
                         target="_blank">pyside6国外教程</a>
                     <a href="https://www.perfcode.com/p/pyside6" target="_blank">pyside6国内教程</a>
                     <a href="https://gitee.com/feiyangqingyun/" target="_blank">qt 控件和示例工程</a>
                     <a href="https://www.bilibili.com/video/BV1c84y1N7iL?p=1&vd_source=c0dc7d467126d572ad6f21e02f921751"
-                        target="_blank">pyside6视频教程</a>
+                        target="_blank" target="_blank">pyside6视频教程</a>
                 </td>
             </tr>
             <tr>
@@ -486,13 +494,14 @@
                     <a href="https://opencv.org" target="_blank">opencv</a>
                     <a href="http://download.dre.vanderbilt.edu" target="_blank">ace</a>
                     <a href="http://www.ggniu.cn/download.htm" target="_blank">牛牛免费截屏库</a>
-                    <a href="http://www.bdsoft.com/tools/stlfilt.html">STLFilt</a>
+                    <a href="http://www.bdsoft.com/tools/stlfilt.html" target="_blank">STLFilt</a>
                     <a href="http://purecpp.cn/" target="_blank">purecpp社区</a>
                     <a href="http://www.runoob.com/cplusplus/cpp-tutorial.html" target="_blank">c++</a>
-                    <a href="https://learn.microsoft.com/zh-cn/cpp/overview/visual-cpp-in-visual-studio?view=msvc-160">vc
+                    <a href="https://learn.microsoft.com/zh-cn/cpp/overview/visual-cpp-in-visual-studio?view=msvc-160"
+                        target="_blank">vc
                         msdn</a>
                     <a href="https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/"
-                        target="_blank">google cpp style guide</a>
+                        target="_blank" target="_blank">google cpp style guide</a>
                 </td>
             </tr>
             <tr>
@@ -509,21 +518,21 @@
                     <a href="http://www.runoob.com/java/java-tutorial.html" target="_blank">java</a>
                     <a href="http://www.runoob.com/go/go-tutorial.html" target="_blank">go</a>
                     <a href="https://www.runoob.com/redis/redis-tutorial.html" target="_blank">redis</a>
-                    <a href="https://www.runoob.com/bootstrap/bootstrap-code.html">bootstrap</a>
-                    <a href="https://www.runoob.com/servlet/servlet-tutorial.html">servlet</a>
+                    <a href="https://www.runoob.com/bootstrap/bootstrap-code.html" target="_blank">bootstrap</a>
+                    <a href="https://www.runoob.com/servlet/servlet-tutorial.html" target="_blank">servlet</a>
                     <a href="https://stackoverflow.com/questions" target="_blank">stack overflow</a>
                     <a href="https://www.runoob.com/mysql/mysql-tutorial.html" target="_blank">mysql教程</a>
                     <a href="https://flutterchina.club/tutorials/" target="_blank">flutter教程</a>
                     <a href="https://dart.cn/guides/language/language-tour" target="_blank">dart教程</a>
-                    <a href="https://mybatis.org/mybatis-3/zh/getting-started.html">mybatis3</a>
-                    <a href="https://www.runoob.com/js/js-tutorial.html">javascript教程</a>
+                    <a href="https://mybatis.org/mybatis-3/zh/getting-started.html" target="_blank">mybatis3</a>
+                    <a href="https://www.runoob.com/js/js-tutorial.html" target="_blank">javascript教程</a>
                     <!-- 与 
                                 <button onclick="window.location.href='soft.html'">soft</button>
                               -->
-                    <a href="https://jspang.com/">技术胖</a>
+                    <a href="https://jspang.com/" target="_blank">技术胖</a>
                     <a href="https://docker.easydoc.net/doc/81170005/cCewZWoN/lTKfePfP" target="_blank">docker 文档</a>
                     <a href="https://www.bilibili.com/video/BV11L411g7U1?p=8&vd_source=c0dc7d467126d572ad6f21e02f921751"
-                        target="_blank">docker 视频教程</a>
+                        target="_blank" target="_blank">docker 视频教程</a>
                     <a href="https://course.rs/about-book.html" target="_blank">rust教程</a>
                 </td>
             </tr>
@@ -539,17 +548,17 @@
                     <a href="https://cowtransfer.com/" target="_blank">传文件</a>
                     <a href="gpsrc.html" target="_blank">股票分析软件源码</a>
                     <a href="https://www.whafontis.com" target="_blank">字体查找工具</a>
-                    <a href="https://www.pingshu8.com/play_8088.html">曾国藩评书</a>
+                    <a href="https://www.pingshu8.com/play_8088.html" target="_blank">曾国藩评书</a>
                     <a href="https://ocr.xinhuokj.com/" target="_blank">ocr识别</a>
                     <a href="https://docs.qq.com/" target="_blank">腾讯文档</a>
                     <a href="http://www.speedtest.cn/" target="_blank">测速</a>
                     <a href="http://netreport.sh.189.cn/speed/main.html" target="_blank">上海电信测速</a>
                     <a href="http://www.weather.com.cn/weather/101020100.shtml" target="_blank">上海天气</a>
-                    <a href="http://www.autohome.com.cn/">autohome</a>
-                    <a href="http://www.alexa.com/">alexa</a>
-                    <a href="http://speed.sc.cninfo.net/">test speed</a>
-                    <a href="http://www.alexa.com/topsites">alexa top</a>
-                    <a href="https://github.com/XX-net">xxx</a>
+                    <a href="http://www.autohome.com.cn/" target="_blank">autohome</a>
+                    <a href="http://www.alexa.com/" target="_blank">alexa</a>
+                    <a href="http://speed.sc.cninfo.net/" target="_blank">test speed</a>
+                    <a href="http://www.alexa.com/topsites" target="_blank">alexa top</a>
+                    <a href="https://github.com/XX-net" target="_blank">xxx</a>
                     <a href="https://www.yoojober.com/" target="_blank">ai简历</a>
                     <a href="https://vizard.video/download" target="_blank">vizard 国产抓图</a>
                 </td>
@@ -564,7 +573,7 @@
                     <a href="https://learnku.com/python/" target="_blank">python问答社区</a>
                     <a href="https://snort.social/" target="_blank">social</a>
 
-                    <a href="http://www.autohotkey.com/">autohotkey</a>
+                    <a href="http://www.autohotkey.com/" target="_blank">autohotkey</a>
 
                 </td>
             </tr>
@@ -596,31 +605,31 @@
                     <strong>news</strong>
                 </td>
                 <td colspan="6" valign="top">
-                    <a href="http://www.yidianzixun.com/">一点资讯</a>
-                    <a href="http://sh.qq.com/">大申网</a>
-                    <a href="http://www.xinmin.cn/">新民网</a>
-                    <a href="http://www.36kr.com/">36氪</a>
-                    <a href="http://www.techweb.com.cn/">techweb</a>
-                    <a href="http://wallstreetcn.com/">华尔街见闻</a>
-                    <a href="http://www.ftchinese.com/">FT中文网</a>
-                    <a href="http://finance.yahoo.com/">yahoo</a>
-                    <a href="https://cn.nytimes.com/">纽约时报</a>
-                    <a href="http://toutiao.com/">今日头条</a>
+                    <a href="http://www.yidianzixun.com/" target="_blank">一点资讯</a>
+                    <a href="http://sh.qq.com/" target="_blank">大申网</a>
+                    <a href="http://www.xinmin.cn/" target="_blank">新民网</a>
+                    <a href="http://www.36kr.com/" target="_blank">36氪</a>
+                    <a href="http://www.techweb.com.cn/" target="_blank">techweb</a>
+                    <a href="http://wallstreetcn.com/" target="_blank">华尔街见闻</a>
+                    <a href="http://www.ftchinese.com/" target="_blank">FT中文网</a>
+                    <a href="http://finance.yahoo.com/" target="_blank">yahoo</a>
+                    <a href="https://cn.nytimes.com/" target="_blank">纽约时报</a>
+                    <a href="http://toutiao.com/" target="_blank">今日头条</a>
                     <a href="https://m.toutiao.com/search/" target="_blank">头条移动搜索</a>
                     <a href="https://www.toutiao.com/search/" target="_blank">头条PC搜索</a>
                     <a href="https://docs.microsoft.com/zh-cn/cpp/?view=msvc-160" target="_blank">msdn</a>
-                    <a href="http://www.hexun.com/">和讯</a>
-                    <a href="http://www.tvmao.com/pg.jsp?p=HAOLAIWU">好莱坞预告</a>
-                    <a href="http://www.smgbb.cn/">
+                    <a href="http://www.hexun.com/" target="_blank">和讯</a>
+                    <a href="http://www.tvmao.com/pg.jsp?p=HAOLAIWU" target="_blank">好莱坞预告</a>
+                    <a href="http://www.smgbb.cn/" target="_blank">
                         东方宽频</a>
                     <a
                         href="http://www.microsoft.com/china/msdn/events/webcasts/shared/Webcast/MSDNWebCast.aspx">webcast</a>
-                    <a href="http://sh.eastday.com/">东方网</a>
-                    <a href="http://www.huash.com/">
+                    <a href="http://sh.eastday.com/" target="_blank">东方网</a>
+                    <a href="http://www.huash.com/" target="_blank">
                         华商网</a>
-                    <a href="http://www.sina.com.cn/">sina</a>
-                    <a href="http://www.daqi.com/">大旗</a>
-                    <a href="http://www.phoenixtv.com/">
+                    <a href="http://www.sina.com.cn/" target="_blank">sina</a>
+                    <a href="http://www.daqi.com/" target="_blank">大旗</a>
+                    <a href="http://www.phoenixtv.com/" target="_blank">
                         凤凰资讯</a>
                     <a href="http://www.beta_blanks.com/">beta_blanks</a>
                     <a href="http://www.nanfangdaily.com.cn/jj/">
