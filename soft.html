@@ -17,7 +17,7 @@
 
         body {
             margin: 0;
-            padding: 20px;
+            padding: 10px 20px;
             box-sizing: border-box;
             background-color: #f0f0f0;
             font-family: Arial, sans-serif;
@@ -120,100 +120,181 @@
         td {
             padding: 10px;
         }
+
+        /* 下载中心表格样式 */
+        .download-table {
+            width: 100%;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            border-collapse: collapse;
+        }
+
+        .download-table th {
+            background: linear-gradient(135deg, #0056b3 0%, #007bff 100%);
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            vertical-align: middle;
+            padding: 15px;
+            font-size: 18px;
+            height: 70px;
+            line-height: 24px;
+        }
+
+        /* 表头第一列样式 */
+        .download-table th:first-child {
+            text-align: left;
+            padding-left: 25px;
+        }
+
+        .download-table td {
+            padding: 20px 15px;
+            text-align: center;
+            vertical-align: middle;
+            border-bottom: 1px solid #e0e0e0;
+            height: auto;
+            min-height: 70px;
+            white-space: normal;
+            word-break: break-word;
+            line-height: 24px;
+            display: table-cell;
+        }
+
+        /* 确保第一列文本垂直居中 */
+        .download-table td:first-child {
+            text-align: left;
+            display: table-cell;
+            vertical-align: middle;
+            padding-left: 25px;
+        }
+
+        .download-table tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        /* 链接样式 */
+        .download-link {
+            color: #007bff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .download-link:hover {
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+        }
     </style>
 </head>
 
 <body>
-
-
-    <div class="page-header" style="margin-top: 70px;"></div>
-
-
-
     <div class="container">
-        <!-- 美化后的表格 -->
-        <div class="block">
-            <table class="table table-hover table-responsive"
-                style="border-collapse: collapse; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-                <tbody>
-                    <tr class="first-row"
-                        style="text-align: center; font-size: 18px; font-weight: bold; background: linear-gradient(135deg, #0056b3 0%, #007bff 100%); color: white;">
-                        <td style="padding: 15px; border: none;">windows 10 22h2</td>
-                    </tr>
-                    <tr style="background-color: white;">
-                        <td style="padding: 12px; border: 1px solid #ddd; border-top: none;">
-                            <a href="https://pan.baidu.com/s/1-KK-jXOw0uAKcgtVTTYLAw?pwd=8888"
-                                style="display: inline-block; margin: 5px 0;">百度网盘下载</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <h1
+            style="background: linear-gradient(135deg, #0056b3 0%, #007bff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-align: center; margin-top: 15px; margin-bottom: 30px; font-weight: bold; font-size: 36px;">
+            装机必备</h1>
 
-        <div class="block">
-            <table class="table table-hover table-responsive"
-                style="border-collapse: collapse; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-                <tbody>
-                    <tr class="first-row"
-                        style="text-align: center; font-size: 18px; font-weight: bold; background: linear-gradient(135deg, #0056b3 0%, #007bff 100%); color: white;">
-                        <td style="padding: 15px; border: none;">office 2016 64位版本</td>
-                    </tr>
-                    <tr style="background-color: white;">
-                        <td style="padding: 12px; border: 1px solid #ddd; border-top: none; word-break: break-all;">
-                            ed2k://|file|cn_office_professional_plus_2016_x86_x64_dvd_6969182.iso|2588266496|27EEA4FE4BB13CD0ECCDFC24167F9E01|/
-                        </td>
-                    </tr>
-                    <tr style="background-color: #f9f9f9;">
-                        <td style="padding: 12px; border: 1px solid #ddd; font-family: monospace;">
-                            SHA1 277926A41B472EE38CA0B36ED8F2696356DCC98F
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <table class="table table-hover download-table">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>下载地址</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>openvpn 2.6 安装脚本和客户端</td>
+                    <td><a href="https://alantop.lanzoub.com/inEbq3brsyuj" class="download-link" target="_blank">下载</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>微信输入法,火绒安全,7z</td>
+                    <td><a href="https://alantop.lanzoub.com/iHrVR38mmmha" class="download-link" target="_blank">下载</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>win office 激活</td>
+                    <td><a href="https://ldqk.lanzoui.com/b0cuni1e" class="download-link" target="_blank">下载</a></td>
+                </tr>
+                <tr>
+                    <td>Office 2013-2021 C2R Install 7.6版本</td>
+                    <td><a href="https://alantop.lanzouf.com/iOSl90u82swb" class="download-link" target="_blank">下载</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>微软运行库</td>
+                    <td><a href="https://423down.lanzouo.com/b0f1dlg3a" class="download-link" target="_blank">下载</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>谷歌浏览器离线安装版</td>
+                    <td><a href="https://www.iplaysoft.com/tools/chrome/#google_vignette" class="download-link"
+                            target="_blank">下载</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>everything</td>
+                    <td><a href="https://www.voidtools.com/zh-cn/downloads/" class="download-link"
+                            target="_blank">下载</a></td>
+                </tr>
+                <tr>
+                    <td>win7 sp1补丁 和 sp1之后的补丁</td>
+                    <td><a href="https://pan.baidu.com/s/1ND3O8DAACxwFoPv0onMlrA?pwd=2025" class="download-link"
+                            target="_blank">下载</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>virtio-win-0.1.285.iso</td>
+                    <td><a href="https://pan.baidu.com/s/1d-epDNqPXm2TX-nGhBC7sQ?pwd=2025" class="download-link"
+                            target="_blank">下载</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>docker and docker_compose</td>
+                    <td><a href="https://alantop.lanzoub.com/iizfm3cwflsh" class="download-link" target="_blank">下载</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 
+        <h1
+            style="background: linear-gradient(135deg, #0056b3 0%, #007bff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-align: center; margin-top: 15px; margin-bottom: 30px; font-weight: bold; font-size: 36px;">
+            windows 和 office </h1>
 
-        <div class=" block">
-            <h3>2025.11.21</h3>
-            <div class="software-item">
+        <table class="table table-hover download-table">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>下载地址</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>win 10 22h2</td>
+                    <td><a href="https://pan.baidu.com/s/1-KK-jXOw0uAKcgtVTTYLAw?pwd=8888" class="download-link"
+                            target="_blank">下载</a>
+                    </td>
+                </tr>
 
-                <a href="https://alantop.lanzoub.com/inEbq3brsyuj">openvpn 2.6 安装脚本和客户端</a>
+                <tr>
+                    <td>office 2016 64位版本 SHA1 277926A41B472EE38CA0B36ED8F2696356DCC98F
+                        ed2k://|file|cn_office_professional_plus_2016_x86_x64_dvd_6969182.iso|2588266496|27EEA4FE4BB13CD0ECCDFC24167F9E01|/
+                    </td>
+                    <td><a href="ed2k://|file|cn_office_professional_plus_2016_x86_x64_dvd_6969182.iso|2588266496|27EEA4FE4BB13CD0ECCDFC24167F9E01|/"
+                            class="download-link" target="_blank"></a>
+                    </td>
+                </tr>
 
+            </tbody>
+        </table>
 
-
-
-
-            </div>
-        </div>
-
-        <div class=" block">
-            <h3>2025.10.16 新机安装</h3>
-            <div class="software-item">
-
-                <a href="https://alantop.lanzoub.com/iHrVR38mmmha
-">微信输入法,火绒安全,7z</a>
-
-
-                <a href="https://ldqk.lanzoui.com/b0cuni1e">win office 激活 </a>
-
-                <a href="https://alantop.lanzouf.com/iOSl90u82swb">Office 2013-2021 C2R
-                    Install
-                    7.6版本</a>
-                <a href="https://423down.lanzouo.com/b0f1dlg3a">微软运行库</a>
-
-                <a href="https://www.iplaysoft.com/tools/chrome/#google_vignette">谷歌浏览器离线安装版</a>
-
-                <a href="https://www.voidtools.com/zh-cn/downloads/">everything</a>
-
-
-                <a href="https://pan.baidu.com/s/1ND3O8DAACxwFoPv0onMlrA?pwd=2025">win7 sp1补丁 和 sp1之后的补丁</a>
-
-
-                <a href="https://pan.baidu.com/s/1d-epDNqPXm2TX-nGhBC7sQ?pwd=2025">virtio-win-0.1.285.iso</a>
-
-
-            </div>
-        </div>
 
 
 
@@ -343,7 +424,8 @@
 
             <h4>other</h4>
             <div class="software-item">
-                <a href="https://docs.microsoft.com/zh-cn/windows-server/get-started/windows-server-release-info">windows
+                <a href="https://docs.microsoft.com/zh-cn/windows-server/get-started/windows-server-release-info"
+                    target="_blank">windows
                     server技术终止时间 </a>
             </div>
             <div class="software-item">
@@ -369,7 +451,7 @@
             <h3>效率工具</h3>
 
             <div class="software-item">
-                <a href="https://alantop.lanzouj.com/iJ7w102snzod">xmind 11</a>
+                <a href="https://alantop.lanzouj.com/iJ7w102snzod" target="_blank">xmind 11</a>
             </div>
             <div class="software-item">
                 <a href="https://www.everauto.net/cn/index.html" target="_blank">ztask</a>
@@ -378,7 +460,7 @@
         <div class="block">
             <h3>Development tools</h3>
             <div class="software-item">
-                <a href="https://alantop.lanzouf.com/ivRaO0tgnp3c">vscode 1.77系统安装包</a>
+                <a href="https://alantop.lanzouf.com/ivRaO0tgnp3c" target="_blank">vscode 1.77系统安装包</a>
             </div>
             <div class="software-item">
                 <a href="https://www.lanzous.com/ia78i8b" target="_blank">GCMW-1.14
@@ -396,7 +478,7 @@
                 <a href="https://alantop.lanzoui.com/iS3nxu585tc" target="_blank">qt访问数据库，可以编辑模式的</a>
             </div>
             <div class="software-item">
-                <a href="https://download.qt.io/archive/qt/">Qt官方离线安装包下载</a>
+                <a href="https://download.qt.io/archive/qt/" target="_blank">Qt官方离线安装包下载</a>
             </div>
             <div class="software-item">
                 <a href="https://pan.baidu.com/s/1caq5d9gHlNmsJ92-gApv1Q?pwd=8888" target="_blank">Qt
@@ -417,11 +499,11 @@
                     mirror</a>
             </div>
             <div class="software-item">
-                <a href="http://mirrors.aliyun.com/qt/archive/">aliyun mirror</a>
+                <a href="http://mirrors.aliyun.com/qt/archive/" target="_blank">aliyun mirror</a>
             </div>
             <h4>runtime</h4>
             <div class="software-item">
-                <a href="http://tools.android-studio.org/index.php/sdk/">安卓sdk 和 java
+                <a href="http://tools.android-studio.org/index.php/sdk/" target="_blank">安卓sdk 和 java
                     sdk下载</a>
             </div>
 
@@ -482,7 +564,8 @@
                 <a href="https://www.tampermonkey.net/" target="_blank">tampermonkey国外官方网站</a>
             </div>
             <div class="software-item">
-                <a href="soft/chrome_extended.html">常用的谷歌插件</a> <a href="googleplugin.png">需要安装的谷歌插件</a>
+                <a href="soft/chrome_extended.html" target="_blank">常用的谷歌插件</a> <a href="googleplugin.png"
+                    target="_blank">需要安装的谷歌插件</a>
             </div>
             <div class="software-item">
                 <a href="https://greasyfork.org/zh-CN/scripts/405130-%E6%96%87%E6%9C%AC%E9%80%89%E4%B8%AD%E5%A4%8D%E5%88%B6"
@@ -510,13 +593,13 @@
         <div class="block">
             <h3>2023.06</h3>
             <div class="software-item">
-                <a href="https://alantop.lanzouj.com/i4ayq10kx3ha">定时运行指定程序</a>
+                <a href="https://alantop.lanzouj.com/i4ayq10kx3ha" target="_blank">定时运行指定程序</a>
             </div>
             <div class="software-item">
                 <a href="https://learn.microsoft.com/zh-cn/sysinternals/">sysinternals工具集</a>
             </div>
             <div class="software-item">
-                <a href="https://alantop.lanzouj.com/i8MDt16i9xbe">securitycrt 7</a>
+                <a href="https://alantop.lanzouj.com/i8MDt16i9xbe" target="_blank">securitycrt 7</a>
             </div>
             <div class="software-item">
                 <a href="https://www.sordum.org/">优秀win软件 关闭防火期 管理员运行 设置win升级 置顶工具 dns工具 时间同步
@@ -528,10 +611,10 @@
             <h3>2023.02</h3>
 
             <div class="software-item">
-                <a href="https://alantop.lanzouf.com/im7xM0p509je ">阿里云盘挂载工具</a>
+                <a href="https://alantop.lanzouf.com/im7xM0p509je " target="_blank">阿里云盘挂载工具</a>
             </div>
             <div class="software-item">
-                <a href="https://alantop.lanzouf.com/iGs9D0o6q6zi">Ollydbg和inno setup解包工具</a>
+                <a href="https://alantop.lanzouf.com/iGs9D0o6q6zi" target="_blank">Ollydbg和inno setup解包工具</a>
             </div>
         </div>
         <div class="block">
@@ -545,7 +628,7 @@
                     href="https://greasyfork.org/zh-CN/scripts/428960-csdn-%E7%9F%A5%E4%B9%8E-%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9-%E7%AE%80%E4%B9%A6%E5%85%8D%E7%99%BB%E5%BD%95%E5%8E%BB%E9%99%A4%E5%BC%B9%E7%AA%97%E5%B9%BF%E5%91%8A">CSDN/知乎/哔哩哔哩/简书免登录去除弹窗广告</a>
             </div>
             <div class="software-item">
-                <a href="https://alantop.lanzouf.com/ih9Ip0ldvdji">bandicam 6.06</a> 录屏软件
+                <a href="https://alantop.lanzouf.com/ih9Ip0ldvdji" target="_blank">bandicam 6.06</a> 录屏软件
             </div>
             <div class="software-item">
                 <a href="https://amtemu-official.com/category/latest-version/">acrobat
@@ -577,10 +660,10 @@
                 <a href="https://alantop.lanzouf.com/ih9Ip0ldvdji">bandicam 6.06 录屏软件</a>
             </div>
             <div class="software-item">
-                <a href="https://alantop.lanzouf.com/iKUhf0iqyymf">微信图片解析</a>
+                <a href="https://alantop.lanzouf.com/iKUhf0iqyymf" target="_blank">微信图片解析</a>
             </div>
             <div class="software-item">
-                <a href="https://alantop.lanzouq.com/i4uTD05leqqd">Sublime Text4 Build 4134
+                <a href="https://alantop.lanzouq.com/i4uTD05leqqd" target="_blank">Sublime Text4 Build 4134
                     Dev
                     x64_CN</a>
             </div>
@@ -596,7 +679,7 @@
                     提取码8888</a>
             </div>
             <div class="software-item">
-                <a href="https://alantop.lanzouq.com/i1Doe04abi8h">专业拷机软件sp2004</a>
+                <a href="https://alantop.lanzouq.com/i1Doe04abi8h" target="_blank">专业拷机软件sp2004</a>
             </div>
         </div>
         <div class="block">
@@ -606,7 +689,7 @@
                     href="https://www.ixigua.com/7218773634620326440?logTag=fc039c341c2964897398">jetbra安装注册教程视频</a>
             </div>
             <div class="software-item">
-                <a href="https://alantop.lanzouq.com/inqD2046s7gh">jetbrains 2021.02.01版
+                <a href="https://alantop.lanzouq.com/inqD2046s7gh" target="_blank">jetbrains 2021.02.01版
                     注册补丁</a>
             </div>
             <div class="software-item">
@@ -636,7 +719,7 @@
         <div class="block">
             <h3>2022.04</h3>
             <div class="software-item">
-                <a href="https://alantop.lanzouq.com/ib3Ia03o6jkd">Bitvise SSH Server 8.37</a>
+                <a href="https://alantop.lanzouq.com/ib3Ia03o6jkd" target="_blank">Bitvise SSH Server 8.37</a>
                 windows
                 下ssh服务器端软件
             </div>
@@ -657,7 +740,7 @@
                 <a href="https://mycolor.space/">ColorSpace 配色网</a>
             </div>
             <div class="software-item">
-                <a href="https://alantop.lanzouq.com/iJ7w102snzod">xmind 11.1 思维导图</a>
+                <a href="https://alantop.lanzouq.com/iJ7w102snzod" target="_blank">xmind 11.1 思维导图</a>
             </div>
             <div class="software-item">
                 <a href="https://423down.lanzouo.com/b0f1aq5sb">扫描君 app</a>
@@ -675,7 +758,7 @@
                     2019 11.8.2。10972 中国石油专班版 百度网盘下载地址</a>
             </div>
 
-            <a href="https://alantop.lanzouq.com/i4Tbj020nmoh">最快的文本编辑器EmuraSoft_EmEditor_Professional
+            <a href="https://alantop.lanzouq.com/i4Tbj020nmoh" target="_blank">最快的文本编辑器EmuraSoft_EmEditor_Professional
                 v21.6.0</a>
             序列号：DMAZM-WHY52-AX222-ZQJXN-79JXH
         </div>
@@ -729,7 +812,7 @@
             <a href="https://www.ypojie.com/10764.html">离线netfram合集</a>
         </div>
         <div class="software-item">
-            <a href="https://alantop.lanzoui.com/icJbgvkc31c">闪豆视频下载</a>
+            <a href="https://alantop.lanzoui.com/icJbgvkc31c" target="_blank">闪豆视频下载</a>
         </div>
         <div class="software-item">
             <a href="https://www.yuque.com/docs/share/b899f480-9cab-4d5a-9c61-a8e8226e1281?#">软件使用说明和帮助</a>
@@ -1001,7 +1084,7 @@
             <a href="https://anytxt.net/" target="_blank">https://anytxt.net/</a>
         </div>
         <div class="software-item">
-            <a href="http://docfetcher.sourceforge.net/en/index.html"
+            <a href="http://docfetcher.sourceforge.net/en/index.html" target="_blank"
                 target="_blank">http://docfetcher.sourceforge.net/en/index.html</a>
         </div>
         <h4 class="media-heading">全文查找工具</h4>
