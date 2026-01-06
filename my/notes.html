@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>备忘录</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .notes-list {
+            padding: 30px;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .note-item {
+            background: #f8f9fa;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+            border-left: 4px solid #667eea;
+        }
+
+        .note-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .note-content {
+            flex: 1;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .note-date {
+            font-size: 12px;
+            color: #999;
+            margin-left: 10px;
+        }
+
+        .empty-state {
+            text-align: center;
+            color: #999;
+            padding: 50px 20px;
+            font-size: 18px;
+        }
+
+        .stats {
+            padding: 20px 30px;
+            background: #f8f9fa;
+            border-top: 2px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stats span {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📝 备忘录</h1>
+        </div>
+
+        <div class="notes-list" id="notesList"></div>
+
+        <div class="stats">
+            <span>总计: <span id="totalCount">0</span> 条</span>
+        </div>
+    </div>
+
+    <script>
+        const notes = [
+            {
+                id: 1,
+                content: "上海市浦东新区夏碧路362号 江南宴·融合菜夏碧路店 2月17日周二晚餐17:30",
+                date: "2024/1/6 10:00:00"
+            },
+            {
+                id: 2,
+                content: "殷行一二村小区249号",
+                date: "2024/1/6 14:00:00"
+            },
+            {
+                id: 3,
+                content: "",
+                date: "2024/1/7 09:00:00"
+            }
+        ];
+
+        function renderNotes() {
+            const notesList = document.getElementById('notesList');
+            const totalCount = document.getElementById('totalCount');
+
+            if (notes.length === 0) {
+                notesList.innerHTML = '<div class="empty-state">暂无备忘录，在 HTML 代码中添加吧！</div>';
+            } else {
+                notesList.innerHTML = notes.map(note => `
+                    <div class="note-item">
+                        <div class="note-content">
+                            ${note.content}
+                            <span class="note-date">${note.date}</span>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            totalCount.textContent = notes.length;
+        }
+
+        renderNotes();
+    </script>
+</body>
+</html>
