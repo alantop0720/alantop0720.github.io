@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+.nav {
+    height: 40px;
+    background-color: #333;
+    box-shadow: 0 1px 2px #666;
+}
+
+.btli {
+    float: left;
+    width: 120px;
+    line-height: 40px;
+    text-align: center;
+    margin-right: 2px;
+}
+
+.btli.wide {
+    width: 140px;
+    margin-right: 0;
+}
+
+.navlist a {
+    color: #fff;
+    display: block;
+}
+
+.navlist a:hover {
+    background: #666;
+}
+
+.alantop_tb {
+    line-height: 30px;
+}
+
+h1,
+h2 {
+    display: inline;
+}
