@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SystemRescue 入门指南</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            color: #333;
+            background-color: #fff;
+        }
+        h1 {
+            color: #1a5276;
+            border-bottom: 3px solid #2980b9;
+            padding-bottom: 10px;
+            font-size: 2em;
+        }
+        h2 {
+            color: #2471a3;
+            margin-top: 2.5em;
+            border-bottom: 1px solid #aed6f1;
+            padding-bottom: 6px;
+        }
+        h3 { color: #2c3e50; margin-top: 1.5em; }
+        code {
+            background-color: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: "Consolas", "Courier New", Courier, monospace;
+            font-size: 0.9em;
+        }
+        pre {
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            padding: 16px;
+            border-radius: 6px;
+            overflow-x: auto;
+            line-height: 1.4;
+        }
+        pre code {
+            background-color: transparent;
+            color: inherit;
+            padding: 0;
+            font-size: 0.95em;
+        }
+        blockquote {
+            border-left: 4px solid #2980b9;
+            margin: 1em 0;
+            padding: 0.5em 1em;
+            background-color: #eaf2f8;
+            border-radius: 0 4px 4px 0;
+        }
+        a { color: #2980b9; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        hr { border: none; border-top: 1px solid #d5d8dc; margin: 2em 0; }
+        ul, ol { padding-left: 25px; }
+        li { margin-bottom: 6px; }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1em 0;
+        }
+        th, td {
+            border: 1px solid #d5d8dc;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        th { background-color: #2980b9; color: white; }
+        tr:nth-child(even) { background-color: #f8f9fa; }
+        strong { color: #2c3e50; }
+    </style>
+</head>
+<body>
+<h1>SYSTEM RESCUE 入门指南</h1>
+<h2>学习如何使用 SystemRescue 和免费软件来管理和恢复计算机</h2>
+<hr />
+<h2>目录</h2>
+<ul>
+<li>前言</li>
+<li>第1章：SystemRescue 简介</li>
+<li>第2章：准备启动设备</li>
+<li>第3章：启动 SystemRescue</li>
+<li>第4章：系统概览</li>
+<li>第5章：网络连接</li>
+<li>第6章：磁盘结构</li>
+<li>第7章：识别磁盘</li>
+<li>第8章：访问文件系统</li>
+<li>第9章：磁盘分区</li>
+<li>第10章：如何将文件恢复到另一个磁盘</li>
+<li>第11章：如何通过网络恢复文件</li>
+<li>第12章：如何创建磁盘克隆和镜像</li>
+<li>第13章：如何使用 chroot 修复 Linux 系统</li>
+<li>第14章：如何重置本地 Windows 密码</li>
+<li>附录1：启动参数</li>
+<li>附录2：如何自定义启动项</li>
+<li>附录3：常用命令</li>
+</ul>
+<hr />
+<h2>前言</h2>
+<p>SystemRescue 是一个基于 Linux 的计算机管理和恢复工具包。它是免费的，可以从 USB 记忆棒等可移动设备运行，因此可以在操作系统停止工作的计算机上使用。它允许用户执行许多基本操作，例如恢复数据文件、分区磁盘、备份和恢复系统磁盘、重置系统密码和测试内存。</p>
+<p>本书是 SystemRescue 的入门指南，帮助新用户开始使用 SystemRescue，并为执行常见操作提供分步指导。</p>
+<h3>本书涵盖的内容</h3>
+<p>第1至5章介绍基础知识。我们从 SystemRescue 的概述开始，然后指导下载并将其安装到可移动启动设备上。接下来介绍如何使用最重要的启动参数启动系统、浏览系统并连接到网络。</p>
+<p>第6至9章提供从 SystemRescue 访问和管理磁盘所需的基本知识和命令。您将学习磁盘的结构、如何识别文件系统并访问其内容，以及可用的磁盘工具。</p>
+<p>第10至14章基于前面章节的背景知识，指导执行常见操作。这些指南展示如何从操作系统损坏的计算机恢复数据文件、如何克隆磁盘、如何使用镜像文件备份和恢复磁盘内容、如何使用 chroot 修复 Linux 系统，以及如何重置忘记的本地 Windows 密码。</p>
+<p>强烈建议您按正常顺序阅读前九章，除非您已经具备相关技能，因为每一章都提供了理解后续内容所需的基本信息。</p>
+<p>第10至14章可以根据您的需求和兴趣按任意顺序阅读。理想情况下，您应该全部阅读，以充分了解 SystemRescue 能帮助您做什么。如果您赶时间，可以跳过其中一些章节，重点关注与您最相关的内容。</p>
+<h3>谁应该阅读本书</h3>
+<p>本书面向 SystemRescue 新用户，希望使用免费软件执行计算机维护操作。您需要良好的计算机技能，并且不应害怕使用命令行界面。熟悉 Linux 命令会有帮助，但这不是使用本书的必需条件，因为新命令都配有示例介绍。</p>
+<h3>谨慎使用工具</h3>
+<p>理解本书中提到的工具的正确使用方法非常重要，因为误用可能会造成损坏。请注意细节，因为小错误可能会产生重大影响。大多数示例中的命令引用的是特定情况下的资源，例如磁盘名称。因此，在执行命令之前，请确保根据您的情况调整示例中的命令。为尽量降低风险，强烈建议您定期备份所有重要数据，尤其是在执行敏感操作之前。</p>
+<h3>免责声明</h3>
+<p>本书包含的信息不提供任何保证。无论是作者还是出版商，对于因直接或间接使用本书而造成或声称造成的任何损害，均不承担任何责任。</p>
+<h3>许可证</h3>
+<p>本书根据知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议 (CC BY-NC-SA 4.0) 分发：https://creativecommons.org/licenses/by-nc-sa/4.0/</p>
+<h3>项目网站</h3>
+<p>SystemRescue 可在官方网站找到：https://www.system-rescue.org</p>
+<hr />
+<h2>第1章：SystemRescue 简介</h2>
+<h3>项目目标</h3>
+<p>SystemRescue（原名 SystemRescueCd）是一个 Linux 发行版，旨在用于管理或恢复计算机系统和数据。它通常从 USB 记忆棒等可移动介质运行，因此可以在操作系统停止工作的计算机上使用。它包含许多用于执行系统管理任务的程序。它基于 Linux，但也适用于 Windows 计算机，因为它支持所有主流文件系统。SystemRescue 完全免费使用。</p>
+<p>以下是一些您可以使用 SystemRescue 做的事情：</p>
+<ul>
+<li>当您购买新磁盘、重新安装操作系统或只是想修改磁盘空间分配时，您可能需要重新分区磁盘。</li>
+<li>如果操作系统停止工作，您可能需要恢复存储在本地磁盘上的数据文件。在擦除磁盘并重新安装系统之前，应将重要数据文件传输到外部磁盘或通过网络传输到另一台计算机。</li>
+<li>创建内部磁盘的物理副本允许您在计算机遇到严重的软件问题或磁盘故障时，通过单个操作恢复其所有内容。如果您的操作系统在系统更新后停止工作，或者由于病毒等恶意软件，或者主磁盘必须因硬件故障而更换，拥有这样的物理副本非常有用。</li>
+<li>重置本地用户帐户的密码（无论是 Linux 还是 Windows 系统）允许您在忘记密码时恢复对系统的访问。</li>
+<li>您可以使用 SystemRescue 修复阻止 Linux 启动的系统或配置更改。</li>
+<li>当您遇到随机问题或崩溃并想了解是否由损坏的内存模块引起时，可以运行内存测试。</li>
+</ul>
+<p>SystemRescue 基于 Linux，因此自然可以用于管理 Linux 系统。但它也适用于 Windows 计算机，因为它可以访问存储在 FAT 和 NTFS 文件系统上的数据。它支持广泛的硬件设备和文件系统，这对于使用系统和访问数据至关重要。此外，Linux 生态系统提供了许多免费工具。SystemRescue 让您可以访问许多这样的管理和恢复程序。它还包括通用应用程序，如文本编辑器和 Web 浏览器。但是，不与系统管理相关的软件（如文字处理器和音乐播放器）不包含在 SystemRescue 中，以使其尽可能紧凑。</p>
+<h3>SystemRescue 之道</h3>
+<p>SystemRescue 提供了许多工具，以便您可以管理系统和恢复数据文件。但它不会自动为您解决问题。要有效地使用它，您必须知道使用哪些程序以及如何使用它们。学习如何使用这些程序的方法有很多。本书帮助您开始使用 SystemRescue，但您可以做的事情远不止文档中记录的内容。</p>
+<p>大多数包含在 SystemRescue 中的程序都带有离线参考文档，可以从系统中访问，无需连接到互联网。您也可以在互联网上找到好的教程，学习如何使用特定程序来解决特定问题。</p>
+<p>大量的程序选择允许您以多种方式执行某些操作，因此您可以决定哪种方法最适合您。一些工具通过图形界面控制，但大多数基于命令行。通常，图形工具更易于使用，但命令行程序为您提供更多的控制和灵活性。例如，您可以利用 Linux shell 管道组合多个命令以更有效地执行操作。您甚至可以通过编写 shell 脚本或使用 Perl、Python 或 Ruby 来自动化必须定期执行的任务，这些工具都包含在内。</p>
+<p>如果有高级需求，可以从网络启动 SystemRescue 而不是使用可移动设备。这在您必须管理多台计算机时特别有用，因为您可以将 SystemRescue 部署在中央服务器上。这样，您可以更容易地更新 SystemRescue，并在一个地方管理和配置可能的自定义设置。</p>
+<h3>上游发行版</h3>
+<p>从版本 6.0 开始，SystemRescue 基于 Arch Linux，这是一个流行的 Linux 发行版。因此，SystemRescue 中包含的大多数组件都完全由 Arch Linux 打包提供。这个上游项目由大量用户开发。该社区从源代码构建所有组件，应用补丁修复错误，保持软件最新，并确保所有软件包保持一致并协同工作。Arch Linux 项目还提供非常好的文档，因此是查找 SystemRescue 中特定程序详细信息的好地方。</p>
+<hr />
+<h2>第2章：准备启动设备</h2>
+<h3>下载 ISO 镜像</h3>
+<p>首先要做的是下载 SystemRescue。要获得正版副本，请确保从官方网站下载：https://www.system-rescue.org/</p>
+<p>主要下载文件是 ISO 镜像文件。这个文件包含使用 SystemRescue 所需的一切。ISO 镜像相当大，因此您需要良好的互联网连接。强烈建议下载 64 位版本 (amd64/x86_64)，除非您的硬件仅支持 32 位软件。</p>
+<p>除非有特殊原因使用旧版本，否则应获取最新可用版本。以下说明基于版本 7.00，但后续版本的过程应该非常相似。</p>
+<h3>验证 ISO 镜像的完整性</h3>
+<p>下载页面还提供校验和，以便您可以验证下载的 ISO 镜像文件的完整性。每个校验和文件以特定版本的 ISO 镜像命名。这些校验和是从原始 ISO 镜像文件内容派生的数字和字母序列。文件的任何更改都会导致校验和完全不同。因此，您可以通过计算副本的校验和并与网站上提供的校验和进行比较，确保下载与原始 ISO 镜像完全相同。</p>
+<p>例如，以下是对应于 7.00 版本的 amd64 架构的 SHA256 校验和：</p>
+<pre><code>ab7fc8a073f09ad7b093ba42bf7a49681954e5567df182766a0343aeeba1251c
+</code></pre>
+<p>验证校验和不需要很长时间，并且如果您获得无效的 ISO 镜像副本，它会为您提供立即修复问题的机会。这将帮助您避免使用 SystemRescue 时遇到意外问题。</p>
+<p>在 Linux 上计算 SHA256 校验和，在终端中使用 sha256sum 命令，后跟 ISO 镜像副本的路径：</p>
+<pre><code class="language-bash">[user@localhost]$ sha256sum systemrescue-7.00-amd64.iso
+</code></pre>
+<p>在 Windows 上，可以从菜单启动命令提示符，使用 cd 转到下载文件夹，然后使用 certutil 命令：</p>
+<pre><code class="language-cmd">C:\&gt; cd \temp
+C:\temp&gt; certutil -hashfile systemrescue-7.00-amd64.iso sha256
+</code></pre>
+<h3>选择正确的启动设备</h3>
+<p>下一步是将 SystemRescue 安装在可启动设备上。有两个流行的选择。</p>
+<p>最初 SystemRescue 设计为从 CD-ROM 介质运行，但您可以使用 DVD-ROM，因为它容量更大。大多数仍有光驱的计算机应该能够读取 DVD-ROM。然而，许多较新的计算机，特别是紧凑型笔记本电脑，没有光驱。因此，记忆棒是运行 SystemRescue 的最佳可移动设备类型。</p>
+<p>目标设备上的所有数据将在安装过程中被删除，因此在将该设备用于 SystemRescue 之前必须备份数据。您也可以选择购买新设备。确保启动设备的大小大于 ISO 镜像的大小。理想情况下，它应该是高质量的设备以避免问题。它也应该很快，以便系统可以快速启动。因此建议使用 USB 3 记忆棒而不是旧型号。</p>
+<h3>在 Windows 上准备记忆棒</h3>
+<p>您需要一个特定的程序将 SystemRescue 安装到记忆棒上。强烈推荐 Rufus 来完成此任务。您可以从 https://rufus.ie/ 免费下载。</p>
+<p>下载 Rufus 后，在计算机上执行它，然后插入记忆棒。在屏幕顶部，下拉菜单将列出计算机上的所有可移动设备。它们应该很容易通过其卷标和大小来识别。选择相关的记忆棒。接下来，选择您下载的 ISO 镜像。选择这两个项目后，Rufus 会刷新屏幕以显示与当前情况相关的选项。</p>
+<p>建议选择 MBR 作为分区方案，BIOS 或 UEFI 作为目标系统，以便您的记忆棒可以在任何类型的 PC 上使用。</p>
+<p>接下来，查看可以编辑记忆棒卷标的框。Rufus 从 ISO 镜像自动检测名称并默认重复使用它。不要更改原始卷标非常重要，因为它在启动过程中用于识别包含 SystemRescue 文件的设备。</p>
+<p>该设备应使用 FAT32 文件系统和默认簇大小进行初始化。其他选项可能取决于 Rufus 的版本。通常，默认选择应该没问题。准备就绪后，单击"开始"。Rufus 会询问是否应以 ISO 模式或 DD 模式写入镜像。这两个选项都将提供可用的启动设备。建议选择 ISO 模式，以便使用设备的全部大小以可写文件系统准备记忆棒。这允许您使用记忆棒上的剩余空间存储其他文件，也允许修改 SystemRescue 文件（如启动菜单项）。在 DD 模式下，记忆棒将可启动，但剩余磁盘空间将不可用于存储其他文件。</p>
+<hr />
+<h2>第3章：启动 SystemRescue</h2>
+<h3>从可移动设备启动</h3>
+<p>准备好 SystemRescue 启动设备后，就可以使用它了。您应该确保计算机从您准备的启动设备启动。您可以在启动计算机时按相应的键来完成此操作。您可以临时从特定的可移动启动设备启动，也可以在固件设置中修改启动顺序，以便在其他启动设备之前使用您准备的可移动启动设备。理想情况下，计算机应始终在查找内部磁盘之前尝试从可移动设备启动，这样每次想从可移动设备启动时就无需担心启动优先级。启动计算机后应该出现一条消息，指示要按哪些键来进行这些更改。通常，它是功能键（如 F1 或 F2）或 Delete 或 Enter 等键。</p>
+<h3>启动菜单</h3>
+<p>系统从可移动启动设备启动后，您应该看到具有蓝色背景的 SystemRescue 启动菜单。有两种类型的启动菜单。如果计算机基于传统 BIOS 固件或使用配置为传统模式的 UEFI 固件，则显示 BIOS 菜单。如果使用配置为 UEFI 模式启动的较新计算机，则显示 UEFI 启动菜单。</p>
+<p>两种类型的启动菜单相似，但有一些差异。前几个条目是最有用的。它们允许您以不同方式启动主 SystemRescue 操作系统。如果以传统 BIOS 模式启动，您还将看到运行 Memtest86+ 的条目。此独立程序执行扩展内存测试。当您遇到稳定性问题（如崩溃）并想知道是否由有缺陷的内存模块引起时，它特别有用。不幸的是，此程序在 UEFI 模式下不可用。</p>
+<h3>使用默认选项启动</h3>
+<p>菜单中的第一个选项使 SystemRescue 使用合理的选项启动，因此最有可能对每个人都有效。由于这是默认选项，如果在突出显示时按 Enter 键或让超时过期，它将被激活。与此条目关联的配置导致系统从您准备的启动设备运行。系统启动将很快，但在整个会话期间将需要可移动启动设备。在关闭或重新启动计算机之前，您无法将其删除。</p>
+<h3>启动并将系统复制到内存（copytoram）</h3>
+<p>一个流行的替代方法是启动并将系统复制到内存 (RAM)。这导致整个系统在启动过程中从启动设备复制到内存。这需要额外的启动时间，并且需要更多 RAM。但是，一旦完全初始化，系统将完全从内存运行。它应该更具响应性，并且在初始化完成后不依赖于启动设备。因此，系统准备就绪后可以移除启动设备，而不会受到影响。</p>
+<p>这种启动系统的方式需要更多资源。您必须有足够的 RAM 来存储系统的副本并执行应用程序。除非计算机上可用的内存量少于 ISO 镜像大小的两倍，否则这不应该是问题。</p>
+<p>从内存运行系统在您使用多个可移动设备且没有足够的驱动器或端口同时插入它们时很有用。如果您打算对正在运行 SystemRescue 的设备进行更改，这也是必需的。例如，您可能从外部磁盘运行 SystemRescue，并且可能希望使用 SystemRescue 对其所在的设备进行重新分区。如果影响设备上的 SystemRescue 安装，这样的操作会导致系统崩溃。通过在系统初始化期间将系统复制到内存可以避免此问题，这样初始化后它就不依赖于设备上的文件。</p>
+<p>从内存运行系统也比从可移动设备运行更可靠。不幸的是，光盘和 USB 记忆棒经常发生读取或写入错误。当程序尝试访问位于坏扇区上的文件时，可能会发生读取错误。这可能会导致应用程序或系统在您进行重要操作时崩溃。通常，RAM 更可靠，因此如果您从内存运行系统，这种情况不太可能发生。</p>
+<p>只需记住，如果您的计算机有足够的资源，强烈建议从内存运行 SystemRescue，特别是如果您计划从该系统工作很长时间或必须执行关键操作。额外的启动时间可以通过使用快速启动设备（如 USB 3 记忆棒）来最小化。</p>
+<h3>启动并验证系统完整性（校验和）</h3>
+<p>启动菜单还有一个条目，用于在启动过程中检查系统的完整性。</p>
+<p>如果 SystemRescue 是从损坏的 ISO 镜像副本安装的，或者安装在有坏扇区的设备上，则可能会发生意外问题。这些类型的损坏可能导致系统或应用程序崩溃，或出现意外错误。</p>
+<p>可以使用校验和文件手动验证 ISO 镜像的完整性，如前一章所述。启动菜单中的此条目提供了验证系统完整性的替代方法。使用此条目启动时，系统会计算位于启动设备上的镜像的校验和，并将其与预期的校验和进行比较。如果检测到任何损坏，启动过程将停止并显示错误消息。</p>
+<p>建议至少在第一次从新设备启动 SystemRescue 时或遇到稳定性问题时使用此选项。如果计算机内存有缺陷，也可能出现此类问题。运行 Memtest86+ 或任何其他内存测试仪可以帮助确定是否需要更换某些内存模块。</p>
+<hr />
+<h2>第4章：系统概览</h2>
+<h3>图形环境</h3>
+<p>当您在初始控制台中运行 startx 命令时，会出现图形环境。它基于轻量级的 XFCE 桌面环境，具有传统的用户界面。</p>
+<p>最重要的应用程序可以直接从屏幕底部的图标启动。左下角的 XFCE 图标可让您访问应用程序菜单，您可以在其中找到所有其他可用的图形应用程序以及屏幕分辨率等设置。此菜单还提供注销条目，您可以在会话结束时使用它来正确关闭计算机。可以使用屏幕右侧时钟旁边的图标配置网络和声音。</p>
+<h3>应用程序概览</h3>
+<p>以下是从面板图标可以启动的关键图形应用程序的概览：</p>
+<ul>
+<li><strong>终端</strong>：用于执行命令行程序和在文本模式下运行的应用程序。它在后续章节中被广泛使用。</li>
+<li><strong>Web 浏览器</strong>：可访问互联网网站，以便您搜索执行特定操作的教程和一般在线文档。</li>
+<li><strong>图形分区编辑器</strong>：允许您操作磁盘上的分区。有关如何使用它的更多信息，请参见第9章：磁盘分区。</li>
+<li><strong>图形文本编辑器</strong>：让您可以轻松修改配置文件或编写个人笔记。</li>
+<li><strong>帮助图标</strong>：提供离线清单，列出 SystemRescue 附带的所有程序，按类别排序。</li>
+</ul>
+<p>应用程序菜单可访问更多程序。建议您查看菜单中的所有类别，以了解有哪些图形应用程序可用。您将找到的内容概览：</p>
+<ul>
+<li>有提供有关硬件详细信息的工具。</li>
+<li>图形文件管理器允许您列出、复制、移动、重命名或删除文件。</li>
+<li>其他程序允许您使用 VNC 和 RDP 等协议通过网络连接到其他计算机。</li>
+<li>包含不同类型的文本编辑器以适应每个人的喜好，并提供十六进制编辑器来查看或编辑二进制文件。</li>
+<li>一些通用工具（如计算器）在您必须计算磁盘大小以执行更改时可能会有所帮助。</li>
+</ul>
+<hr />
+<h2>第5章：网络连接</h2>
+<h3>配置网络</h3>
+<p>您有时需要在使用 SystemRescue 时连接到网络，无论是从互联网获取文档还是将数据传输到其他计算机或从其他计算机传输数据。网络配置默认由 NetworkManager 服务控制。它提供了用户友好的工具，可以从图形界面或使用终端命令配置以太网和 Wi-Fi 网络适配器。图形配置工具可从时钟旁边的图标访问。</p>
+<p>您应该看到每个以太网接口的条目，以及如果您的计算机支持 Wi-Fi 网络的列表。如果看不到预期的内容，可能意味着没有适配您网络适配器的驱动程序。如果您的硬件很新或使用旧版本的 SystemRescue，更可能不受支持。Linux 驱动程序会定期添加和更新，因此如果您的硬件不受支持，您应该升级到最新版本。</p>
+<p>要连接到 Wi-Fi 网络，只需在菜单中单击其名称。如果网络已加密，它会要求您输入密码。</p>
+<p>如果网络使用动态地址，连接应自动配置。这是当今大多数家庭和企业网络的情况。通常，网络使用 DHCP 配置以提供动态 IP 地址、DNS 服务器和默认网关，以便连接的设备可以轻松访问互联网。</p>
+<p>如果您的网络不使用这种动态配置，则必须手动配置静态地址。为此，请转到图形界面并双击特定连接。然后选择 IPv4 设置或 IPv6 设置，并选择手动方法而不是自动 (DHCP)。</p>
+<p>如果您愿意，也可以使用命令行工具配置网络。可以在终端中使用 nmcli 和 nmtui 控制 NetworkManager。此外，传统的 Linux 网络命令（如 ifconfig 和 ip）也可用。</p>
+<h3>网络连接状态</h3>
+<p>要检查网络连接，请使用鼠标右键单击 NetworkManager 图标，然后从菜单中选择连接信息。它显示的信息包括计算机当前使用的 IP 地址。如果您想从另一台计算机连接，则需要此地址，因此请记录下来。</p>
+<h3>如何管理防火墙</h3>
+<p>默认情况下，SystemRescue 中启用防火墙，并且仅阻止传入连接。这可以防止无意中暴露存储在计算机上的敏感信息。它允许您建立出站连接，因此您可以访问互联网站点并从 SystemRescue 连接到其他计算机。因此，在大多数情况下，您不需要更改防火墙配置。</p>
+<p>当您需要在运行 SystemRescue 的计算机上接收传入连接时，您必须进行干预，例如从损坏的计算机传输数据（如第11章所述）。在这些情况下，您必须通过在防火墙配置中添加新规则或完全停止防火墙来授权传入连接。</p>
+<p>在 SystemRescue 中，防火墙由两个服务控制：iptables 和 ip6tables，分别管理 IPv4 和 IPv6。您可以通过使用以下命令查看这些服务的状态来检查防火墙是否处于活动状态：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# systemctl is-active iptables
+active
+[root@sysrescue ~]# systemctl is-active ip6tables
+active
+</code></pre>
+<p>授权新传入连接的最安全方法是创建一个仅授权您需要的连接的规则。然后系统阻止所有其他传入连接。例如，您可能希望让另一台计算机（使用地址 192.168.99.21）连接到 SystemRescue 中运行的 SSH 服务。SSH 服务默认使用 TCP 端口 22。因此，您将使用以下命令在终端中授权此类连接：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# iptables -I INPUT -p tcp -m tcp --dport 22 -s 192.168.99.21 -j ACCEPT
+</code></pre>
+<p>如果您连接到受信任的网络，完全停止防火墙可能更容易，这样所有传入连接都被允许。您可以通过使用以下命令停止两个服务来完成此操作：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# systemctl stop iptables ip6tables
+</code></pre>
+<p>然后确认两个服务已停止：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# systemctl is-active iptables
+inactive
+[root@sysrescue ~]# systemctl is-active ip6tables
+inactive
+</code></pre>
+<p>您还可以使用以下 iptables 命令来检查哪些防火墙规则和策略生效：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# iptables -S
+-P INPUT ACCEPT
+-P FORWARD ACCEPT
+-P OUTPUT ACCEPT
+</code></pre>
+<hr />
+<h2>第6章：磁盘结构</h2>
+<p>使用 SystemRescue 执行的许多操作都涉及操作磁盘。这包括磁盘分区、创建或恢复操作系统备份以及恢复数据文件。重要的是要很好地理解磁盘的结构，以便成功执行这些操作。本章自底向上概述磁盘结构。它适用于 SSD 磁盘、磁性硬盘和 USB 记忆棒等设备。</p>
+<h3>磁盘设备</h3>
+<p>从操作系统的角度来看，磁盘只是一个长字节序列，按通常为 512 或 4096 字节的扇区分组。例如，500GB 磁盘只是 5000 亿字节的序列，在使用每扇区 512 字节的磁盘上对应约 10 亿个扇区。将这种无结构的字节序列转换为组织数据存储的文件和文件夹需要做很多事情。</p>
+<h3>分区表</h3>
+<p>磁盘通常被划分为分区，因此可以像有多个较小的磁盘一样使用空间。例如，500GB 磁盘可以分成两个分区：200GB 分区可用于存储操作系统文件，300GB 分区可以分配给用户数据。</p>
+<p>物理磁盘的前几个扇区通常包含分区表。这个小结构定义了磁盘上的分区列表及其属性，例如起始位置和大小。例如，以下是 fdisk 工具显示的 500GB 磁盘上的分区表：</p>
+<pre><code>[root@sysrescue ~]# fdisk --list /dev/sdc
+Disk /dev/sdc: 465.76 GiB, 500107862016 bytes, 976773168 sectors
+</code></pre>
+<p>在此示例中，您可以看到磁盘使用每扇区 512 字节，分区表包含七个条目。每个条目以扇区为单位定义分区的起始和结束位置。</p>
+<p>有不同类型的分区表。最常见的类型是 MBR/MSDOS 和 GPT。MBR/MSDOS 分区表很旧，并且相当有限，因为它们仅支持四个主分区，并且每个条目限制在约 40 亿个扇区。这将使用 512 字节扇区的磁盘上的分区大小限制为 2TB。GPT 分区表是最近引入的，以消除这些限制。它们还提供对其他属性的支持，因此每个分区都可以有名称。基于 GPT 的磁盘在磁盘末尾也有分区表的第二份副本。这意味着如果第一份副本被覆盖或损坏，可以恢复它。</p>
+<p>请记住，即使所有空间都分配给单个分区，大多数磁盘也包含分区表。此外，某些操作系统使用的小分区在文件管理器中并不总是可见的。这可能会给人一种磁盘只包含一个分区的印象，而实际上有多个分区。您可以运行 SystemRescue 中的 GParted 或 fdisk 等工具来检查磁盘的分区方式。</p>
+<h3>文件系统</h3>
+<p>磁盘上的分区是磁盘的子集，因此它也是一个字节序列。文件系统将这些字节序列转换为逻辑结构，允许将数据存储在按目录组织的文件中。文件系统管理所有这些结构，包括每个文件的内容和属性（如时间戳和权限）。</p>
+<p>每个操作系统使用不同类型的文件系统。有些只提供非常基本的功能，而另一些具有高级功能，例如透明压缩和快照。例如，MS-DOS 和早期版本的 Windows 使用非常有限的 FAT 文件系统。Windows 的新版本使用新技术文件系统 (NTFS)，它消除了旧的限制并引入了访问控制和透明压缩等功能。在 Linux 上，最常见的本机文件系统目前是 EXT4、XFS 和 BTRFS。幸运的是，Linux 也支持 FAT 和 NTFS 文件系统，因此 SystemRescue 可以访问 Windows 使用的文件。</p>
+<hr />
+<h2>第7章：识别磁盘</h2>
+<h3>Linux 上的磁盘名称</h3>
+<p>许多管理任务涉及读写磁盘，因此了解如何从 SystemRescue 访问这些设备很重要。操作系统为每个磁盘分配一个设备名称。您使用这些名称运行与磁盘相关的操作。</p>
+<p>不同类型的磁盘使用不同的命名方案。SATA 磁盘被分配名称，如 /dev/sda 表示第一个设备，/dev/sdb 表示第二个这样的磁盘，依此类推。NVMe 磁盘获得诸如 /dev/nvme0n1、然后 /dev/nvme0n2 等名称。</p>
+<p>磁盘上的分区通过磁盘名称后面的数字来标识。如果磁盘名称以数字结尾，则使用字母 p 将分区编号与磁盘名称分开。以下是一些示例：</p>
+<ul>
+<li>/dev/sda1 是磁盘 /dev/sda 上的第一个分区</li>
+<li>/dev/nvme0n1p1 是磁盘 /dev/nvme0n1 上的第一个分区</li>
+<li>/dev/nvme0n1p2 是磁盘 /dev/nvme0n1 上的第二个分区</li>
+</ul>
+<h3>识别磁盘设备</h3>
+<p>SystemRescue 附带 GParted。它是一个图形分区编辑器，可让您轻松识别磁盘和分区。主窗口一次显示一个磁盘的内容。如果计算机上有多个磁盘，可以使用窗口右上角的下拉列表在它们之间切换。</p>
+<p>GParted 以两种方式显示磁盘布局。窗口顶部是分区的图形视图。底部以列表形式显示相同的分区，包含更多详细信息。您还可以在终端中使用 lsblk 命令来识别磁盘：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# lsblk -o path,size,fstype,label,model
+PATH        SIZE FSTYPE      LABEL     MODEL
+/dev/sdc  465.8G                       Samsung_SSD_850_EVO_mSATA
+/dev/sdc1     4G vfat        UEFI_ESP
+/dev/sdc2   5.2G btrfs       boot
+/dev/sdc3 406.5G crypto_LUKS
+/dev/sdc4    16M
+/dev/sdc5    42G ntfs        Windows
+/dev/sdc6     8G vfat        SOFTWARE
+</code></pre>
+<p>lsblk 命令显示每个磁盘和分区的最重要属性。这些可以帮助您识别磁盘并找到在执行涉及磁盘或分区的操作时要指定的设备名称。</p>
+<hr />
+<h2>第8章：访问文件系统</h2>
+<p>一旦您识别了磁盘，您可能希望访问它们包含的文件。要使存储在设备上的文件可访问，必须将设备挂载到目录上。目录是文件变为可见的位置。</p>
+<p>SystemRescue 支持所有主流文件系统，包括 Linux 系统上使用的 EXT4、XFS 和 BTRFS，以及 Windows 上使用的 FAT 和 NTFS。</p>
+<p>与大多数 Linux 发行版不同，SystemRescue 不会自动挂载文件系统。手动挂载文件系统需要更多努力，但这是必需的，以便您可以控制正在访问哪些文件系统。SystemRescue 通常用于创建磁盘的物理副本，如第12章所述，因此在此类操作期间，存储在这些磁盘上的文件系统不能被挂载。</p>
+<h3>挂载文件系统</h3>
+<p>您可以在终端中运行两个简单命令来挂载文件系统。例如，我们将把名为 /dev/sdc6 的设备挂载到名为 software 的新目录上，以便可以从此位置访问文件。这个新目录称为挂载点，因为设备将被挂载到此处。您可以给此目录任何您喜欢的名称，但要避免使用空格，因为空格在命令行中用作分隔符。</p>
+<p>首先，创建挂载点。建议在 /mnt 下创建此新目录以保持整洁。可以使用 mkdir 命令创建此新目录：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# mkdir -p /mnt/software
+</code></pre>
+<p>第二步是将设备挂载到新的挂载点。您使用 mount 命令执行此操作，它需要两个参数。第一个参数是包含要访问的文件的设备名称。第二个参数是设备将挂载到的目录。mount 命令还接受可选参数，我们将使用 -o ro 选项指定文件系统必须以只读模式挂载：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# mount /dev/sdc6 /mnt/software -o ro -v
+mount: /dev/sdc6 mounted on /mnt/software.
+</code></pre>
+<p>建议如果您不打算对文件进行任何更改，则以只读模式挂载设备。这样，您可以确保这些文件不会被意外删除或修改。挂载设备后，使用 df 命令检查设备上使用了多少空间：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# df -hT /mnt/software
+Filesystem     Type  Size  Used Avail Use% Mounted on
+/dev/sdc6      vfat  8.0G  826M  7.2G  11% /mnt/software
+</code></pre>
+<h3>在文件系统中导航</h3>
+<p>您可以使用应用程序（如 Thunar，它是可从主菜单访问的图形文件管理器）或使用 Midnight Commander 来探索已挂载文件系统的内容。</p>
+<p>以下是如何从终端命令行显示已挂载文件系统的内容。ls 命令显示特定位置存在的文件和目录。建议使用 -lh 选项来获得更可读的列表：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# ls -lh /mnt/software
+total 16K
+drwxr-xr-x 2 root root 4.0K Sep  6 16:11 drivers
+drwxr-xr-x 2 root root 4.0K Sep  6 16:11 systemrescue
+drwxr-xr-x 2 root root 4.0K Sep  6 16:07 temp
+drwxr-xr-x 2 root root 4.0K Sep  6 16:10 utilities
+</code></pre>
+<h3>Midnight Commander</h3>
+<p>这个强大的工具让您可以查看、编辑、复制、移动、重命名或删除文件和目录。您可以通过在终端中执行 mc 来启动 Midnight Commander。默认情况下，它有两个窗格，因此您可以轻松地在两个位置之间复制或移动文件。当您想从一个窗格切换到另一个时，按 Tab 键。要导航，请使用箭头键和 Enter。要返回父目录，选择顶部的 .. 条目并按 Enter。</p>
+<p>应用程序底部显示可以通过按键盘上相应的功能键触发的操作。例如，使用 F3 查看当前选定的文件，F4 编辑它，F5 复制它，F6 移动它。要创建新目录使用 F7，使用 F8 删除选择。要退出按 F10。</p>
+<h3>卸载文件系统</h3>
+<p>完成文件操作后，建议在终端中执行 sync 命令。这会使系统将所有待处理的更改刷新到磁盘。</p>
+<p>设备必须正确卸载以确保文件系统结构保持一致。要卸载文件系统，请在终端中使用 umount 命令。您必须指定设备名称或相应的挂载点：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# umount /dev/sdc6
+[root@sysrescue ~]# umount /mnt/software
+</code></pre>
+<p>如果设备上的任何资源仍在使用中，umount 命令将失败：</p>
+<pre><code class="language-bash">[root@sysrescue /mnt/software]# umount /mnt/software
+umount: /mnt/software: target is busy.
+</code></pre>
+<p>如果收到此类错误，必须关闭正在访问此设备上文件或目录的所有应用程序，包括当前目录属于该设备的终端。</p>
+<hr />
+<h2>第9章：磁盘分区</h2>
+<h3>概述</h3>
+<p>SystemRescue 附带许多用于磁盘分区的工具。它们允许您创建、调整大小、移动和删除分区以及相应的文件系统。</p>
+<p>更改磁盘分区方式的原因有很多。通常，在使用新磁盘之前必须创建分区和文件系统。此外，如果将旧磁盘复制到较大的新磁盘，则必须更改磁盘布局，以便可以使用额外的磁盘空间。在这种情况下，可以创建新分区或调整现有分区的大小以分配额外空间。</p>
+<p>有时您可能希望用多个较小的分区替换一个大分区。例如，许多新计算机的磁盘大部分空间分配给单个分区。此默认布局很简单，但可能不是最优的。通常最好将操作系统文件和个人数据存储在不同的分区上。这样，您可以在不影响个人数据文件的情况下对系统分区执行操作。</p>
+<h3>分区和文件系统</h3>
+<p>理解分区和文件系统之间的区别至关重要。分区只是物理磁盘的子集。它实现为分区表中的一个条目，指示其在磁盘上的位置和属性。通常分区包含文件系统，文件系统决定文件和目录的组织方式。特定文件系统可以使用分配给相应分区的所有空间。</p>
+<p>大多数磁盘分区活动涉及操作分区和相应的文件系统。两个操作必须保持一致非常重要。例如，您可能有一个 500GB 磁盘，其中只包含一个安装操作系统的卷。如果此分区上的文件系统有很多可用空间，您可能希望将此卷缩小到 100GB，以便为另一个 400GB 的卷腾出空间来存储数据文件。</p>
+<p>缩小当前 500GB 的卷涉及两个操作：</p>
+<ol>
+<li>首先，将文件系统缩小到 100GB，以便文件系统结构和数据移动到此分区的前 100GB。</li>
+<li>接下来，通过修改分区表中的条目将分区缩小到 100GB，为其他分区腾出空间。</li>
+</ol>
+<p>必须按正确的顺序应用这两个操作，以便文件系统永远不会大于其所属的分区。增大卷涉及以相反的顺序执行两个操作：必须在增大文件系统之前增大分区。</p>
+<h3>图形分区工具</h3>
+<p>GParted 是大多数磁盘分区活动的最佳工具。它具有图形用户界面，非常用户友好。它同时修改分区表和相应的文件系统，以便在操作期间一致地修改两种结构。</p>
+<p>GParted 以图形方式显示磁盘空间，因此非常容易可视化磁盘空间的分配方式。如果您的计算机有多个磁盘，请使用窗口顶部的下拉列表从一个磁盘切换到另一个磁盘。可以通过单击菜单中的操作来轻松创建、删除、移动或调整分区及其相应文件系统的大小。</p>
+<h3>文件系统工具</h3>
+<p>SystemRescue 附带用于管理所有主流文件系统（如 EXT4、XFS、BTRFS、FAT 和 NTFS）的工具。这些工具允许您执行以下类型的操作：</p>
+<ul>
+<li>所有主流文件系统都有自己的 mkfs 工具来在分区或磁盘设备上创建新文件系统（mkfs.ext4、mkfs.xfs、mkfs.btrfs、mkfs.fat、mkfs.ntfs）</li>
+<li>fsck 工具允许您验证文件系统的结构并修复错误（fsck.ext4、fsck.xfs、fsck.btrfs、fsck.fat、ntfsfix）</li>
+<li>大多数文件系统可以调整大小，但相应的工具名称不同。EXT4 使用 resize2fs 调整大小。XFS 文件系统可以使用 xfs_growfs 扩展。BTRFS 文件系统可以使用通用的 btrfs 工具管理，该工具提供用于执行调整大小操作的子命令。NTFS 文件系统可以使用 ntfsresize 调整大小。</li>
+</ul>
+<p>文件系统可以在联机（挂载时）或脱机（未挂载时）调整大小。每种文件系统类型都有自己的功能。例如，EXT4 可以联机或脱机扩展，但只能脱机缩小。XFS 文件系统可以联机或脱机扩展，但不能缩小。BTRFS 文件系统可以扩展或缩小，但这些操作必须联机运行。NTFS 文件系统必须使用当前 Linux 工具脱机调整大小。</p>
+<hr />
+<h2>第10章：如何将文件恢复到另一个磁盘</h2>
+<p>SystemRescue 可以帮助您在无法访问时恢复存储在本地磁盘上的数据文件。这可能至关重要，例如，如果安装在计算机上的操作系统停止工作且无法重新启动。如果问题是由软件问题（如有缺陷的操作系统更新）引起的，您可能必须重新安装系统。这通常涉及擦除磁盘，因此会丢失存储在磁盘上的数据文件。在这种情况下，您应该在重新安装系统之前将所有重要数据文件复制到安全的地方。</p>
+<p>本章指导您完成将文件从一个磁盘复制到另一个磁盘的过程。在典型情况下，您会将位于内部磁盘上的文件复制到外部磁盘。</p>
+<h3>启动 SystemRescue</h3>
+<p>如果操作系统无法工作，首先要启动 SystemRescue。然后转到图形桌面并打开终端以准备执行命令。</p>
+<h3>识别磁盘</h3>
+<p>此操作涉及两个文件系统。第一个文件系统是要恢复的文件当前存储的位置，可能在内部磁盘上。第二个文件系统是必须将这些数据文件复制到的位置，可能是外部磁盘。可以使用 lsblk 识别这两个文件系统：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# lsblk -o path,size,fstype,label,model
+PATH         SIZE FSTYPE      LABEL     MODEL
+/dev/sdc   465.8G                       Samsung_SSD_850_EVO_mSATA
+/dev/sdc5     48G ntfs        Windows
+/dev/sdd   931.5G                       SABRENT
+/dev/sdd1  931.5G ext4        external
+</code></pre>
+<h3>挂载磁盘</h3>
+<p>接下来，必须挂载这两个文件系统。首先创建两个挂载点：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# mkdir -p /mnt/internal
+[root@sysrescue ~]# mkdir -p /mnt/external
+</code></pre>
+<p>包含原始数据文件的文件系统将以只读模式挂载：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# mount /dev/sdc5 /mnt/internal -o ro
+</code></pre>
+<p>目标文件系统必须以读写模式挂载：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# mount /dev/sdd1 /mnt/external -o rw
+</code></pre>
+<h3>复制数据文件</h3>
+<p>在此阶段，您可以从 /mnt/internal 访问原始数据，从 /mnt/external 访问目标数据。您可以使用任何应用程序在两个位置之间复制文件。最简单的方法是使用 Midnight Commander 或图形文件管理器。</p>
+<h3>卸载磁盘</h3>
+<p>复制所有数据文件后，在终端中运行 sync 以将所有待处理操作刷新到磁盘。然后使用 umount 命令卸载两个文件系统：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# sync
+[root@sysrescue ~]# umount /mnt/internal
+[root@sysrescue ~]# umount /mnt/external
+</code></pre>
+<p>最后，正确关闭 SystemRescue 以确保磁盘结构保持一致。</p>
+<hr />
+<h2>第11章：如何通过网络恢复文件</h2>
+<p>本章也侧重于数据恢复，但这次文件通过网络复制。文件将从运行 SystemRescue 的计算机复制到网络上的另一台计算机，因此您不需要外部磁盘来存储原始文件的副本。</p>
+<h3>识别磁盘</h3>
+<p>在主计算机上启动 SystemRescue 并在图形环境中打开终端。然后使用 lsblk 识别要恢复的数据存储的设备名称。</p>
+<h3>挂载磁盘</h3>
+<p>必须挂载包含要传输的数据的磁盘以便访问：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# mkdir -p /mnt/internal
+[root@sysrescue ~]# mount /dev/sdc5 /mnt/internal -o ro
+</code></pre>
+<h3>连接到网络</h3>
+<p>两台计算机必须连接到网络才能传输数据。在 SystemRescue 上使用 NetworkManager 配置到以太网或 Wi-Fi 网络的连接。连接到网络后，获取此计算机的当前 IP 地址。</p>
+<h3>启动 SFTP 服务</h3>
+<p>运行 SystemRescue 的计算机作为 SFTP 服务器工作。SystemRescue 附带 OpenSSH，可用作 SFTP 服务器。默认情况下此服务已启用，但您应该检查它是否仍处于活动状态：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# systemctl is-active sshd
+active
+</code></pre>
+<h3>设置 root 密码</h3>
+<p>SFTP 客户端必须使用用户名和密码进行身份验证。SystemRescue 中的 root 帐户默认不允许身份验证。必须设置密码以允许客户端进行身份验证：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# passwd root
+New password:
+Retype new password:
+passwd: password updated successfully
+</code></pre>
+<h3>使用 FileZilla 复制数据</h3>
+<p>在辅助计算机上运行 FileZilla 客户端以连接到 SystemRescue 中运行的 SFTP 服务器。提供连接详细信息：</p>
+<ul>
+<li>主机：运行 SystemRescue 的计算机的 IP 地址</li>
+<li>用户名：root</li>
+<li>密码：您在上一步中创建的密码</li>
+<li>端口：22</li>
+</ul>
+<p>连接成功后，您将看到文件和文件夹出现。屏幕分为两个窗格。第一个窗格代表运行 FileZilla 客户端的计算机上的本地文件和文件夹。另一个窗格显示在 SystemRescue 中作为 SFTP 服务器运行的主计算机上的远程文件。</p>
+<hr />
+<h2>第12章：如何创建磁盘克隆和镜像</h2>
+<p>本章介绍创建磁盘物理副本的步骤。磁盘可以复制到另一个磁盘或可以将来恢复的镜像文件。</p>
+<h3>逻辑和物理方法</h3>
+<p>创建磁盘副本有多种有效方法。本章重点介绍创建和恢复物理副本。</p>
+<p><strong>逻辑副本</strong>是通过分析原始磁盘上的磁盘结构，然后在目标磁盘上重新创建这些结构和数据来创建的。逻辑复制磁盘需要程序来复制分区表和每个文件系统。</p>
+<p><strong>物理副本</strong>是整个磁盘的精确副本。磁盘是一个长字节序列。物理副本不涉及复杂的操作。所需要的是复制序列中的每个字节。</p>
+<p>本章重点介绍创建磁盘的严格物理副本，因为这种方法具有重要优势：</p>
+<ul>
+<li>不需要任何复杂的程序来创建这样的副本</li>
+<li>副本与原始完全相同</li>
+<li>可以使用简单命令将整个磁盘复制到镜像文件或从镜像文件恢复</li>
+</ul>
+<h3>dd 命令</h3>
+<p>物理磁盘、分区和文件都由操作系统视为字节序列。这使得可以将物理磁盘或分区复制到文件以进行备份和恢复。物理副本是使用 dd 程序创建的，该程序在 Linux 系统上广泛可用：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# dd if=/dev/sdc of=/mnt/external/disk-image status=progress
+</code></pre>
+<h3>创建磁盘的镜像文件</h3>
+<p>以下是将磁盘复制到镜像文件的步骤。例如，我们将把安装操作系统的内部 500GB 磁盘复制到外部 1TB 磁盘。</p>
+<p>首先，启动 SystemRescue，以便在操作期间不使用被复制的磁盘。然后识别涉及的两个磁盘：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# lsblk -o path,size,fstype,label,model
+PATH         SIZE FSTYPE      LABEL     MODEL
+/dev/sdc   465.8G                       Samsung_SSD_850_EVO_mSATA
+/dev/sdd   931.5G                       SABRENT
+/dev/sdd1  931.5G ext4        external
+</code></pre>
+<p>挂载外部磁盘：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# mkdir -p /mnt/external
+[root@sysrescue ~]# mount -v /dev/sdd1 /mnt/external
+mount: /dev/sdd1 mounted on /mnt/external.
+</code></pre>
+<p>确保被复制的磁盘未挂载：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# lsblk -o path,size,fstype,label,mountpoint /dev/sdc
+PATH         SIZE FSTYPE      LABEL     MOUNTPOINT
+/dev/sdc   465.8G
+/dev/sdc6      2G vfat        SOFTWARE  /mnt/software
+</code></pre>
+<p>如果有分区已挂载，先卸载：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# umount /dev/sdc6
+</code></pre>
+<p>现在执行复制：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# dd if=/dev/sdc of=/mnt/external/disk-image status=progress
+</code></pre>
+<h3>从镜像文件恢复磁盘</h3>
+<p>从镜像文件恢复磁盘在系统无法轻松解决问题时很有用。操作完成后，运行 sync 并卸载外部磁盘：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# sync
+[root@sysrescue ~]# umount /mnt/external
+</code></pre>
+<hr />
+<h2>第13章：如何使用 chroot 修复 Linux 系统</h2>
+<p>SystemRescue 附带 chroot，可以帮助修复影响 Linux 操作系统的许多问题。它在以下情况下特别有用：</p>
+<ul>
+<li>Linux 系统可以启动，但忘记验证系统的密码</li>
+<li>启动 Linux 的引导加载程序（如 Grub）停止工作，必须重新安装</li>
+<li>系统启动过程因与 Linux 内核或 initramfs 镜像相关的问题而失败</li>
+</ul>
+<h3>chroot 如何工作</h3>
+<p>Chroot 更改当前终端中执行的程序的有效根目录。换句话说，这些程序将新目录视为系统的根目录。这允许您在另一个 Linux 操作系统的上下文中运行命令，就像计算机已直接从该系统启动一样。</p>
+<p>例如，假设您的 Linux 系统安装在本地磁盘上，并且由于忘记密码而无法打开会话。要遵循的过程是启动 SystemRescue，识别本地 Linux 系统的根文件系统并将其挂载到挂载点（如 /mnt/linux）。然后使用 chroot 使此挂载点成为新的有效根目录，并执行 passwd 命令在 chroot 环境中重置密码。</p>
+<p>许多管理命令依赖于虚拟文件系统（如 /dev、/proc 和 /sys）。因此，必须在 chroot 环境中提供这些虚拟文件系统，命令才能正常工作。arch-chroot 脚本负责在更改有效根之前设置所有这些虚拟文件系统。这就是为什么您应该使用 arch-chroot 而不是标准 chroot 命令来访问 chroot 环境。</p>
+<h3>详细示例</h3>
+<p>以下是从 SystemRescue 使用 chroot 更改 Linux 操作系统密码的步骤：</p>
+<p>首先，识别安装了无法工作的 Linux 系统的设备：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# lsblk -o path,size,fstype,label,model
+PATH        SIZE FSTYPE      LABEL    MODEL
+/dev/sdc7     8G btrfs       Fedora
+</code></pre>
+<p>接下来，创建名为 linux 的挂载点并挂载根文件系统：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# mkdir -p /mnt/linux
+[root@sysrescue ~]# mount /dev/sdc7 /mnt/linux
+</code></pre>
+<p>现在使用 arch-chroot 更改当前上下文：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# arch-chroot /mnt/linux
+</code></pre>
+<p>您可以确认上下文已成功更改，因为属于 Fedora 的文件无需指定挂载点作为前缀即可访问：</p>
+<pre><code class="language-bash">[root@sysrescue /]# cat /etc/fedora-release
+Fedora release 33 (Thirty Three)
+</code></pre>
+<p>现在运行命令修复 Linux 系统文件。在此示例中，我们重置 root 用户帐户的密码：</p>
+<pre><code class="language-bash">[root@sysrescue /]# passwd root
+Changing password for user root.
+New password:
+Retype new password:
+passwd: all authentication tokens updated successfully.
+</code></pre>
+<p>完成所有更改后，在当前终端中键入 exit 退出 chroot 环境。最后卸载 Linux 文件系统：</p>
+<pre><code class="language-bash">[root@sysrescue /]# exit
+[root@sysrescue ~]# umount --recursive /mnt/linux
+</code></pre>
+<hr />
+<h2>第14章：如何重置本地 Windows 密码</h2>
+<p>本章指导您完成重置 Windows 系统上本地用户密码的过程。如果您忘记了密码且无法登录，则必须重置此类密码。当前方法仅适用于存储在本地磁盘上的密码。</p>
+<p>SystemRescue 附带 chntpw。此程序可以修改 Windows 存储本地密码的 SAM 文件。</p>
+<h3>识别 Windows 磁盘</h3>
+<p>第一步是使用 lsblk 识别安装 Windows 的分区：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# lsblk -o path,size,fstype,label,model
+PATH        SIZE FSTYPE      LABEL    MODEL
+/dev/sdc5    40G ntfs        Windows
+</code></pre>
+<h3>挂载 Windows 磁盘</h3>
+<p>接下来，创建挂载点并将其命名为 windows：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# mkdir -p /mnt/windows
+[root@sysrescue ~]# mount -v /dev/sdc5 /mnt/windows
+mount: /dev/sdc5 mounted on /mnt/windows.
+</code></pre>
+<p>确保可以找到 SAM 文件：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# find /mnt/windows -name SAM
+/mnt/windows/Windows/System32/config/SAM
+</code></pre>
+<h3>清除密码</h3>
+<p>现在使用 chntpw 命令显示本地用户帐户列表：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# chntpw -l /mnt/windows/Windows/System32/config/SAM
+</code></pre>
+<p>使用 -u 选项指定需要密码重置的用户帐户名称：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# chntpw -u francois /mnt/windows/Windows/System32/config/SAM
+</code></pre>
+<p>按照屏幕上的说明，按 1 + Enter 清除用户密码，然后按 q + Enter 退出菜单。最后按 y + Enter 确认要保存在 SAM 文件中进行的修改。</p>
+<h3>卸载 Windows 磁盘</h3>
+<p>完成更改后，在关闭或重新启动计算机之前卸载 Windows 磁盘：</p>
+<pre><code class="language-bash">[root@sysrescue ~]# umount /mnt/windows
+</code></pre>
+<h3>设置新密码</h3>
+<p>重新启动后，您应该可以使用本地帐户登录 Windows，无需任何密码。然后您可以按 Ctrl+Alt+Delete 并选择更改密码来设置新密码。</p>
+<hr />
+<h2>附录1：启动参数</h2>
+<p>以下是最常见的启动参数。有关主要可选启动参数的更多详细信息，请参见第3章：启动 SystemRescue。</p>
+<h3>必需的启动参数</h3>
+<ul>
+<li><strong>archisolabel=xxxx</strong>：定义 SystemRescue 在初始化期间从其加载文件的文件系统的卷标。</li>
+<li><strong>archisobasedir=xxxx</strong>：定义所有 SystemRescue 文件所在的基本目录。此选项允许您将 SystemRescue 安装在自定义目录中。</li>
+</ul>
+<h3>可选的启动参数</h3>
+<ul>
+<li><strong>copytoram</strong>：使 SystemRescue 完全加载到内存中。除非您的计算机没有足够的内存，否则建议使用此选项。</li>
+<li><strong>checksum</strong>：触发对启动镜像完整性的验证。如果在运行 SystemRescue 时遇到意外错误，应使用此启动选项。</li>
+<li><strong>setkmap=xxxx</strong>：使用特定键盘映射代码（如 de 表示德语键盘）配置键盘布局。在终端中运行 setkmap 以获取所有支持的布局列表。</li>
+<li><strong>nofirewall</strong>：禁用防火墙，以便您可以从外部连接到 SystemRescue 实时系统。</li>
+<li><strong>nomodeset</strong>：使用基本的低分辨率显示驱动程序运行系统。如果默认显示设置不工作，请使用此选项。</li>
+</ul>
+<hr />
+<h2>附录2：如何自定义启动项</h2>
+<p>如果 SystemRescue 安装在可写文件系统（如可写设备上的 FAT32）上，则可以自定义启动菜单中的 SystemRescue 条目。可以通过编辑以下两个文件来修改两个启动菜单：sysresccd_sys.cfg 和 grubsrcd.cfg。</p>
+<h3>BIOS 启动菜单</h3>
+<p>在 sysresccd_sys.cfg 中 Legacy BIOS 启动菜单的第一个条目的定义：</p>
+<pre><code>LABEL sysresccd
+TEXT HELP
+Boot the SystemRescue live medium.
+ENDTEXT
+MENU LABEL Boot SystemRescue using default options
+LINUX boot/x86_64/vmlinuz
+INITRD boot/intel_ucode.img,boot/amd_ucode.img,boot/x86_64/sysresccd.img
+APPEND archisobasedir=sysresccd archisolabel=RESCUE700
+</code></pre>
+<p>可以在以 APPEND 关键字开头的行上进行自定义。例如，如果您使用法语键盘并且总是希望在启动期间将系统内容复制到内存，可以在此行末尾添加以下两个参数：</p>
+<pre><code>setkmap=fr-latin1 copytoram
+</code></pre>
+<h3>UEFI 启动菜单</h3>
+<p>在 grubsrcd.cfg 中 UEFI 启动菜单的默认启动条目定义：</p>
+<pre><code>menuentry &quot;Boot SystemRescue using default options&quot; {
+        set gfxpayload=keep
+        linux /sysresccd/boot/x86_64/vmlinuz archisobasedir=sysresccd archisolabel=RESCUE700
+        initrd /sysresccd/boot/intel_ucode.img /sysresccd/boot/amd_ucode.img /sysresccd/boot/x86_64/sysresccd.img
+</code></pre>
+<p>这次，更改应在以 linux 开头的行上进行。vmlinuz 内核镜像文件的路径必须保持在其原始位置，紧跟在 linux 关键字之后。</p>
+<h3>警告</h3>
+<p>请确保所有参数之间用空格分隔，并且不要插入新的换行符。此外，请确保您不会在不了解其含义的情况下更改 archisolabel 参数的值。此值随 SystemRescue 的每个版本而变化。它用于在启动过程中识别安装 SystemRescue 的设备。因此，此参数的值必须与安装它的设备的卷标匹配。否则，SystemRescue 将无法启动。</p>
+<hr />
+<h2>附录3：常用命令</h2>
+<p>以下是各章中使用的基本命令摘要。您可以参考此附录来提醒自己特定用例使用哪个命令。</p>
+<h3>文档</h3>
+<p>大多数命令都带有提供详细文档的手册页。可以通过 man 命令访问。例如，您可以在终端中运行 man dd 来了解更多关于 dd 命令的信息。此外，大多数命令在执行命令后跟 --help 时会显示每个支持选项的摘要。</p>
+<h3>一般命令</h3>
+<ul>
+<li><code>cd /path/to/directory</code>：更改当前 shell 中的当前目录</li>
+<li><code>pwd</code>：显示当前 shell 中工作目录的路径</li>
+<li><code>ls -lh /path/to/directory</code>：显示文件系统上目录的内容</li>
+<li><code>cat /path/to/file</code>：显示文件的内容</li>
+<li><code>sha256sum /path/to/file</code>：计算文件的 SHA256 校验和</li>
+<li><code>find /path/to/directory -name "filename"</code>：搜索位于特定目录中具有特定名称的文件</li>
+</ul>
+<h3>控制防火墙</h3>
+<ul>
+<li><code>systemctl is-active iptables ip6tables</code>：显示防火墙服务当前是否处于活动状态</li>
+<li><code>systemctl stop iptables ip6tables</code>：在当前系统上停止防火墙服务</li>
+<li><code>iptables -S</code> 和 <code>ip6tables -S</code>：显示系统上当前生效的防火墙策略和规则</li>
+</ul>
+<h3>识别磁盘和分区</h3>
+<ul>
+<li><code>lsblk -o path,size,fstype,label,model</code>：显示所有磁盘和分区的列表及其主要属性</li>
+</ul>
+<h3>挂载文件系统</h3>
+<ul>
+<li><code>mkdir -p /mnt/mount_point</code>：创建可以用作挂载点的新目录</li>
+<li><code>mount -v /dev/device_name /mnt/mount_point</code>：将文件系统挂载到目录上（在末尾添加 -o ro 以只读模式挂载）</li>
+<li><code>umount /mnt/mount_point</code>：从特定挂载点卸载文件系统</li>
+<li><code>df -hT /mnt/mount_point</code>：显示已挂载文件系统上可用的磁盘空间</li>
+</ul>
+<h3>通过网络传输文件</h3>
+<ul>
+<li><code>systemctl is-active sshd</code>：显示 sshd 服务当前是否处于活动状态</li>
+<li><code>systemctl restart sshd</code>：在当前系统上重新启动 sshd 服务</li>
+<li><code>systemctl stop sshd</code>：在当前系统上停止 sshd 服务</li>
+<li><code>passwd root</code>：更改当前系统上 root 用户帐户的密码</li>
+<li><code>journalctl -f --unit=sshd</code>：显示 sshd 服务写入的消息</li>
+</ul>
+<h3>物理磁盘副本</h3>
+<ul>
+<li><code>blockdev --getsize64 /dev/device_name</code>：显示磁盘或分区的确切大小</li>
+<li><code>du -b /path/to/file</code>：显示文件的确切大小</li>
+<li><code>dd if=input of=output status=progress</code>：将所有数据从输入顺序复制到输出</li>
+<li><code>losetup --read-only -P --find --show /path/to/disk-image</code>：从磁盘镜像文件创建虚拟环回设备</li>
+<li><code>losetup -d /dev/loop_device</code>：将环回设备与其镜像文件分离</li>
+</ul>
+<h3>Chroot</h3>
+<ul>
+<li><code>arch-chroot /mnt/mount_point</code>：将有效根目录更改为已挂载的文件系统</li>
+<li><code>umount --recursive /mnt/mount_point</code>：卸载已挂载的文件系统和所有递归文件系统</li>
+</ul>
+<hr />
+<p><em>本文档翻译自 SystemRescue Getting Started Guide (20220205)</em></p>
+</body>
+</html>
