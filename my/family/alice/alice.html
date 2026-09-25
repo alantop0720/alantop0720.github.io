@@ -23,41 +23,136 @@
         a:hover {
             text-decoration: underline;
         }
+
+        .rule-box {
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            background-color: #ffffff;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .rule-box h2 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+            color: #212529;
+        }
+
+        .rule-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .rule-box li {
+            color: #343a40;
+            margin-bottom: 6px;
+        }
+
+        .photos img {
+            width: 260px;
+            margin: 5px;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+        }
+
+        .link-box {
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            background-color: #ffffff;
+            padding: 15px;
+        }
+
+        .link-box h2 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+            color: #212529;
+        }
+
+        .link-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .link-list li {
+            background-color: #f1f3f5;
+            border-radius: 4px;
+            padding: 8px 10px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .link-list li:hover {
+            background-color: #e9ecef;
+        }
+
+        .link-list .note {
+            display: block;
+            color: #6c757d;
+            font-size: 12px;
+        }
     </style>
 </head>
 
 <body>
     <div class="layer">
-        <p> <a href="https://www.shijuan1.com/" target="_blank">第一考试网</a> </p><br>
-        <p> <a href="https://www.jyeoo.com/" target="_blank">优网</a> </p><br>
-        <p> <a href="https://www.aoshu.com/" target="_blank">奥数网</a> </p><br>
-        <p> <a href="https://space.bilibili.com/431569803?spm_id_from=333.337.0.0" target="_blank">数学林老师</a> </p><br>
-        <p> <a href="https://www.bilibili.com/video/BV1nE411j7nR/?spm_id_from=333.337.search-card.all.click&vd_source=c0dc7d467126d572ad6f21e02f921751"
-                target="_blank">英语语法</a> </p><br>
-        <p> <a href="https://www.bilibili.com/video/BV1L7411473C/?spm_id_from=333.337.search-card.all.click&vd_source=c0dc7d467126d572ad6f21e02f921751"
-                target="_blank">语文</a> </p><br>
-        <p> <a href="https://www.doubao.com/chat/" target="_blank">豆包</a> </p><br>
-        <p> <a href="https://basic.smartedu.cn/tchMaterial" target="_blank">小学 初中 高中全套教材</a> </p><br>
+        <div class="rule-box">
+            <h2>积分规则</h2>
+            <ul>
+                <li>使用电子屏幕的时间：正常放假 +40分钟</li>
+                <li>国家节假日 +20分钟</li>
+                <li>1个积分 = 20分钟手机时间 = 电脑 40分钟</li>
+                <li>三好学生 手机 +3分</li>
+                <li>周日中午12点 到 周五 18点，禁止游戏</li>
+            </ul>
+        </div>
 
-        <p> <a href="https://sjxxclass.yach-sh.cn/vue/#/xzy3/home1"
-                target="_blank">学知云</a>（账号:224429,sjxxclass.yach-sh.cn） </p><br>
+        <div class="rule-box">
+            <h2>积分使用日志</h2>
+            <ul>
+                <li>2026.09.24 积分 14.95</li>
+                <li>2026.09.25 手机使用 30、电脑使用 40，扣 1.5 积分</li>
+            </ul>
+        </div>
 
-        <p> <a href="https://ide.mindplus.top/" target="_blank">儿童编程</a> </p><br>
-        <p> <a href="https://www.zxx.edu.cn/tchMaterial" target="_blank">电子教材</a> </p><br>
+        <div class="rule-box photos">
+            <h2>图片</h2>
+            <a href="092501.jpg" target="_blank"><img src="092501.jpg" alt="092501"></a>
+            <a href="092502.jpg" target="_blank"><img src="092502.jpg" alt="092502"></a>
+        </div>
 
-        <p> <a href="https://shanghai.campus.qq.com/" target="_blank">上海空中课堂备用腾讯地址</a> </p><br>
-        <p> <a href="https://smile.shec.edu.cn/#/" target="_blank">上海微校</a> </p><br>
-
-
-        <p> <a href="http://mail.qq.com" target="_blank">qq邮箱</a> </p><br>
-
-        <p> <a href="http://www.69jk.cn/tools/qianziwen/" target="_blank">千字文</a> </p><br>
-        <p> <a href="http://www.guoxue.com/zt/gxbl/" target="_blank">81部国学经典</a> </p><br>
-
-        <p> <a href="http://cy.5156edu.com/" target="_blank">查成语</a> </p><br>
-        <p> <a href="http://xh.5156edu.com/" target="_blank">查汉字</a> </p><br>
-        <p> <a href="https://cn.bing.com/dict/" target="_blank">查英文</a> </p><br>
-        <p> <a href="https://bihua.51240.com" target="_blank">查笔顺（51240）</a> </p><br>
+        <div class="link-box">
+            <h2>常用链接</h2>
+            <ul class="link-list">
+                <li><a href="https://www.shijuan1.com/" target="_blank">第一考试网</a></li>
+                <li><a href="https://www.jyeoo.com/" target="_blank">优网</a></li>
+                <li><a href="https://www.aoshu.com/" target="_blank">奥数网</a></li>
+                <li><a href="https://space.bilibili.com/431569803?spm_id_from=333.337.0.0"
+                        target="_blank">数学林老师</a></li>
+                <li><a href="https://www.bilibili.com/video/BV1nE411j7nR/?spm_id_from=333.337.search-card.all.click&vd_source=c0dc7d467126d572ad6f21e02f921751"
+                        target="_blank">英语语法</a></li>
+                <li><a href="https://www.bilibili.com/video/BV1L7411473C/?spm_id_from=333.337.search-card.all.click&vd_source=c0dc7d467126d572ad6f21e02f921751"
+                        target="_blank">语文</a></li>
+                <li><a href="https://www.doubao.com/chat/" target="_blank">豆包</a></li>
+                <li><a href="https://basic.smartedu.cn/tchMaterial" target="_blank">小学 初中 高中全套教材</a></li>
+                <li><a href="https://sjxxclass.yach-sh.cn/vue/#/xzy3/home1" target="_blank">学知云</a>
+                    <span class="note">账号:224429，sjxxclass.yach-sh.cn</span></li>
+                <li><a href="https://ide.mindplus.top/" target="_blank">儿童编程</a></li>
+                <li><a href="https://www.zxx.edu.cn/tchMaterial" target="_blank">电子教材</a></li>
+                <li><a href="https://shanghai.campus.qq.com/" target="_blank">上海空中课堂备用腾讯地址</a></li>
+                <li><a href="https://smile.shec.edu.cn/#/" target="_blank">上海微校</a></li>
+                <li><a href="http://mail.qq.com" target="_blank">qq邮箱</a></li>
+                <li><a href="http://www.69jk.cn/tools/qianziwen/" target="_blank">千字文</a></li>
+                <li><a href="http://www.guoxue.com/zt/gxbl/" target="_blank">81部国学经典</a></li>
+                <li><a href="http://cy.5156edu.com/" target="_blank">查成语</a></li>
+                <li><a href="http://xh.5156edu.com/" target="_blank">查汉字</a></li>
+                <li><a href="https://cn.bing.com/dict/" target="_blank">查英文</a></li>
+                <li><a href="https://bihua.51240.com" target="_blank">查笔顺（51240）</a></li>
+            </ul>
+        </div>
     </div>
 </body>
 
